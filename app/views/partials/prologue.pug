@@ -1,0 +1,16 @@
+//- © Andrew Wei
+
+section#prologue(is='calc3-prologue')
+  div(name='identity')
+    div(name='logos')
+      a(href='/'): img.logo(src=require('assets/images/app-icon.png'))
+      h1= __('title')
+  div(name='splash')
+    figure
+    figure
+    figure
+  div(name='info-panel')
+    span.tagline(type='label')!= __('description')
+    span.vendor(type='label')!= __('get-it-now')
+    div.store-badges
+      a(type='button' href=$config.appUrl target='_blank').app-store-badge

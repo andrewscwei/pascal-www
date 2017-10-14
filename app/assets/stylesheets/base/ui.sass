@@ -1,0 +1,45 @@
+// © Andrew Wei
+
+%bounds
+  +margin(0 auto)
+  +size(100% auto)
+  +padding(0 40px)
+
+%diagram
+  background-repeat: no-repeat
+  background-size: 100% auto
+  background-position: center
+
+%button
+  +transition(opacity color background, 0.1s, ease-out)
+  background: transparent
+  border: none
+  cursor: pointer
+
+  &:hover
+    opacity: .6
+
+  &[disabled]
+    pointer-events: none
+
+  &.app-store-badge
+    +size(115px 34px)
+    background: url(~assets/images/app-store-badge.svg) center / auto 100% no-repeat
+
+  &.app-store, &.google-play
+    +font(ss, xs, n)
+    +padding(6px 12px)
+    border-radius: 8px
+    background: $color-grey
+    color: $color-true-white
+
+    &:hover
+      opacity: 1.0
+      color: $color-black
+      background: $color-true-white
+
+  &.app-store:after
+    content: 'iOS'
+
+  &.google-play:after
+    content: 'Android'

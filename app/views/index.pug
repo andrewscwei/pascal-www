@@ -1,0 +1,21 @@
+//- © Andrew Wei
+
+extends /views/layouts/base
+
+append config
+  - $title = $config.title
+  - $description = $config.description
+  - $keywords = $config.keywords
+  - $url = $config.url
+
+block body
+  include /views/partials/header
+
+  main
+    include /views/partials/prologue
+    include /views/partials/scientific
+    include /views/partials/graphing
+    include /views/partials/programmer
+    include /views/partials/extensions
+    include /views/partials/epilogue
+    include /views/partials/footer

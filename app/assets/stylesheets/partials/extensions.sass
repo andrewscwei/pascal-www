@@ -1,0 +1,55 @@
+// © Andrew Wei
+
+section#extensions
+  +size(100% auto)
+  +overflow(hidden)
+  background: $color-true-black
+
+  .content
+    +overflow(hidden)
+    +size(100% 50vw)
+    +max-size(unset 700px)
+
+  +name('title')
+    +align()
+    +edge(10% null null 5%)
+    z-index: 10
+
+    #{select-headings()}, #{select-texts()}
+      &.title
+        color: $color-true-white
+      &.subtitle
+        color: $color-grey
+
+  +name('info-panel')
+    +display('elasticv', center)
+    +padding(30px 5%)
+    +size(100% auto)
+    background: $color-black
+
+    #{select-headings()}
+      color: $color-true-white
+
+    #{select-texts()}
+      color: $color-light-grey
+
+    .info-column
+      +space-between(20px, 'v')
+
+    +screen('>%s', 500px)
+      +display('box>', top right)
+      +padding(4% 5%)
+
+      .info-column
+        +size(200px auto)
+        +space-between(20px)
+
+  +name('diagram')
+    +align(top center)
+    +size(70% 100%)
+    +transition(transform opacity, .4s, ease-out)
+    background: url(~assets/images/extensions-diagram.jpg) top center / 100% auto no-repeat
+    opacity: 0
+
+    +data('state', visible)
+      opacity: 1

@@ -1,0 +1,11 @@
+//- © Andrew Wei
+
+header#header(is='calc3-header')
+  a(name='brand' href='#prologue')
+    img(src=require('assets/images/app-icon.png'))
+    h3= __('title')
+  a(type='button' href=$config.appUrl target='_blank').app-store
+  nav
+    span(name='nav-nodes' type='label'): a(href='#scientific')= __('scientific.title')
+    span(name='nav-nodes' type='label'): a(href='#graphing')= __('graphing.title')
+    span(name='nav-nodes' type='label'): a(href='#programmer')= __('programmer.title')

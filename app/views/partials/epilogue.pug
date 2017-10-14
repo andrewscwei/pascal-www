@@ -1,0 +1,18 @@
+//- © Andrew Wei
+
+section#epilogue
+  div(name='info-panel')
+    div.info-column
+      img(src=require('assets/images/highlight-3-in-1.svg'))
+      h6= __('extras.feature-1-title')
+      p= __('extras.feature-1')
+    div.info-column
+      img(src=require('assets/images/highlight-rpn.svg'))
+      h6= __('extras.feature-2-title')
+      p= __('extras.feature-2')
+    div.info-column
+      img(src=require('assets/images/highlight-themes.svg'))
+      h6= __('extras.feature-3-title')
+      p= __('extras.feature-3')
+  div.store-badges
+    a(type='button' href=$config.appUrl target='_blank').app-store-badge

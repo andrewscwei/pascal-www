@@ -1,0 +1,90 @@
+// © Andrew Wei
+
+section#prologue
+  +size(100% 550px)
+  +overflow(hidden)
+  background: $color-white
+
+  +screen('>=tablet')
+    +size(100%)
+
+  +name('identity')
+    +align(top left)
+    +edge(5% null null 5%)
+    z-index: 10
+
+    +name('logos')
+      +display('box>', left center)
+      +size(auto 40px)
+
+      a
+        +margin(_ 10px _ _)
+
+      a, img
+        +size(auto 100%)
+
+  +name('splash')
+    +align()
+    +size(100%)
+
+    figure
+      opacity: 0
+      transform: translate3d(0, 60px, 0)
+
+    +data('state', visible)
+      figure
+        opacity: 1.0
+        transform: translate3d(0, 0, 0)
+
+    figure
+      +align(top left)
+      +size(100%)
+      +transition(opacity transform, .4s, ease-out)
+      background-size: contain
+      background-position: center
+      background-repeat: no-repeat
+
+      &:nth-child(1)
+        background-image: url(~assets/images/splash-1.png)
+        transition-delay: 0s
+
+      &:nth-child(2)
+        background-image: url(~assets/images/splash-2.png)
+        transition-delay: .1s
+
+      &:nth-child(3)
+        background-image: url(~assets/images/splash-3.png)
+        transition-delay: .2s
+
+  +name('info-panel')
+    +align(bottom left)
+    +display('boxv', center)
+    +padding(50px 10%)
+    +size(100% auto)
+    background: rgba($color-white, .9)
+    z-index: 10
+
+    #{select-headings()}, #{select-texts()}
+      +space-between(10px, 'v')
+      text-align: center
+
+      &.tagline
+        +font(ss, d, l)
+        color: $color-true-black
+
+        strong
+          font-weight: $font-weight-sans-serif-normal
+
+        #{select-links()}
+          font-weight: $font-weight-sans-serif-normal
+
+      &.vendor
+        +font(ss, s, n)
+        color: $color-black
+
+        strong
+          font-weight: $font-weight-sans-serif-bold
+          color: $color-black
+
+    #{select-buttons('.app-store-badge')}
+      @extend %button

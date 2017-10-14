@@ -1,0 +1,7 @@
+//- © Andrew Wei
+
+- $m = require(`moment`)
+
+footer
+  span.legal(type='label')= __('copyright', $m().format(`YYYY`))
+  span(type='label'): a(href=`mailto:${$config.contact.support}`)= __('support')

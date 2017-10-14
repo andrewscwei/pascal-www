@@ -1,0 +1,14 @@
+// © Andrew Wei
+
+footer
+  +size(100% 60px)
+  +display('box>', center)
+  background: $color-white
+  
+  #{select-headings()}, #{select-texts()}
+    +font(ss, xs, n)
+    +space-between(10px)
+    color: $color-grey
+
+    #{select-links()}
+      color: $color-true-black

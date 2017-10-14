@@ -1,0 +1,69 @@
+// © Andrew Wei
+
+// Define variables.
+$font-family-serif: 'Roboto Slab', serif
+$font-weight-serif-light: 100
+$font-weight-serif-normal: 300
+$font-weight-serif-bold: 400
+$font-family-sans-serif: 'Roboto', sans-serif
+$font-weight-sans-serif-light: 100
+$font-weight-sans-serif-normal: 300
+$font-weight-sans-serif-bold: 500
+$font-size-extra-small: 12px
+$font-size-small: 14px
+$font-size-medium: 20px
+$font-size-large: 30px
+$font-size-extra-large: 36px
+
+#{select-texts()}
+  +font(ss, s, n)
+  line-height: 1.5em
+  letter-spacing: .4px
+
+  em
+    font-style: italic
+
+  strong
+    font-weight: $font-weight-sans-serif-bold
+
+  #{select-links()}
+    color: inherit
+
+#{select-links()}
+  @extend %button
+
+h1
+  +font(ss, xl, l)
+  letter-spacing: 1.6px
+
+h2
+  +font(ss, m, l)
+  text-transform: uppercase
+
+  +screen('>=tablet')
+    +font(ss, l, l)
+
+h3
+  +font(ss, m, n)
+  letter-spacing: .7px
+
+h4
+  +font(ss, s, n)
+
+  +screen('>=tablet')
+    +font(ss, d, n)
+
+h5
+  +font(ss, s, b)
+  margin-bottom: 0.625em
+  text-transform: uppercase
+  letter-spacing: 1.2px
+
+h6
+  +font(ss, s, b)
+  margin-bottom: 0.625em
+  text-transform: uppercase
+  letter-spacing: 1px
+
+  +screen('>=tablet')
+    +font(ss, d, b)

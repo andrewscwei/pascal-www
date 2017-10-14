@@ -1,0 +1,10 @@
+//- © Andrew Wei
+
+extends ../../../node_modules/pug-base-layout/index
+
+append config
+  -
+    $manifestPath = path => require.context('manifest', true, /.*/)(`./${path}`)
+
+block styles
+  link(rel=`stylesheet` href=`https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400|Roboto:100,100i,300,300i,500,500i`)
