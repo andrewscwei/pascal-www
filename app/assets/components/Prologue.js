@@ -31,7 +31,7 @@ class Prologue extends m.Element(`calc3-prologue`) {
         if (!element) return;
 
         const rect = getRect(element);
-        const y = rect.top - 30;
+        const y = rect.top - 60;
 
         const scroll = {
           y: window.pageYOffset
