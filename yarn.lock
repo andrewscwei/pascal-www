@@ -6328,9 +6328,9 @@ webpack-merge@^4.1.0:
   dependencies:
     lodash "^4.17.4"
 
-webpack-mpa-builder@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/webpack-mpa-builder/-/webpack-mpa-builder-0.5.0.tgz#27117e5063dfb47fbd0d1de98c6691acf5eb8dca"
+webpack-mpa-builder@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/webpack-mpa-builder/-/webpack-mpa-builder-0.6.0.tgz#06a0de3086bd0755e3581a96ece9f9e2c2597041"
   dependencies:
     autoprefixer "^7.1.4"
     babel-core "^6.26.0"
