@@ -86,6 +86,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+animejs@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/animejs/-/animejs-2.2.0.tgz#35eefdfc535b81949c9cb06f0b3e60c02e6fdc80"
+
 ansi-escapes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-3.0.0.tgz#ec3e8b4e9f8064fc02c3ac9b65f1c275bda8ef92"
@@ -2710,10 +2714,6 @@ graceful-fs@*, graceful-fs@^4.0.0, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
 growl@1.9.2:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.9.2.tgz#0ea7743715db8d8de2c5ede1775e1b45ac85c02f"
-
-gsap@^1.20.3:
-  version "1.20.3"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-1.20.3.tgz#c9a6e7be057cf59417483448f925472fa2f73cd7"
 
 gulp-decompress@^1.2.0:
   version "1.2.0"

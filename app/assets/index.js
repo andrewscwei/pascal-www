@@ -4,8 +4,6 @@
 
 import 'assets/stylesheets/index';
 import 'document-register-element';
-import 'gsap';
-import 'gsap/src/uncompressed/plugins/ScrollToPlugin';
 
 import './components/Header';
 import './components/Prologue';

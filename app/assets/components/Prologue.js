@@ -1,9 +1,10 @@
-/* global TweenLite */
 // © Andrew Wei
 
 'use strict';
 
 import m, { dom, DirtyType } from 'meno';
+import getRect from 'meno/lib/utils/getRect';
+import anime from 'animejs';
 
 const $ = dom.getChild;
 
@@ -25,7 +26,24 @@ class Prologue extends m.Element(`calc3-prologue`) {
         e.preventDefault();
         const href = dom.getAttribute(e.currentTarget, `href`);
         if (!href) return;
-        TweenLite.to(window, 0.5, { scrollTo: href, ease: `Expo.easeOut` });
+
+        const element = document.getElementById(href.replace(`#`, ``));
+        if (!element) return;
+
+        const rect = getRect(element);
+        const y = rect.top - 30;
+
+        const scroll = {
+          y: window.pageYOffset
+        };
+
+        anime({
+          targets: scroll,
+          y: y,
+          duration: 350,
+          easing: `easeInOutCubic`,
+          update: () => window.scroll(0, scroll.y)
+        });
       });
     });
   }
