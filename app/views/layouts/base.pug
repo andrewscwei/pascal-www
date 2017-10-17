@@ -4,6 +4,10 @@ extends ../../../node_modules/pug-base-layout/index
 
 append config
   -
+    $description = $config.description
+    $keywords = $config.keywords
+    $url = $config.url
+    $analytics = $config.analytics
     $manifestPath = path => require.context('manifest', true, /.*/)(`./${path}`)
 
 block styles

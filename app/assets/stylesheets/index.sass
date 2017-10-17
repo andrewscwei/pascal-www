@@ -15,11 +15,19 @@
 @import 'partials/epilogue'
 @import 'partials/footer'
 
-
-html, body
+body
   +min-size(320px unset)
   background: $color-white
   -webkit-overflow-scrolling: touch
 
+  &.dark
+    background: $color-black
+
 main
   +size(100%)
+
+#error
+  +display('boxv')
+
+  .logo
+    +size(80px auto)

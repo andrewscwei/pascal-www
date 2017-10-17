@@ -33,5 +33,8 @@
   "extras.feature-2": "RPN mode is available for both scientific and programmer configurations. Enable this feature in the Settings Panel.",
   "extras.feature-3-title": "Themes",
   "extras.feature-3": "Choose from a package of beautiful themes available for a 1-time in-app purchase.",
-  "get-it-now": "Get it now for <strong>FREE</strong> on the App Store"
+  "get-it-now": "Get it now for <strong>FREE</strong> on the App Store",
+  "404-title": "Page not found",
+  "404-description": "Whoops! Page not found!",
+  "return": "Return"
 }

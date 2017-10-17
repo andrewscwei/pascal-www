@@ -4900,9 +4900,9 @@ pug-attrs@^2.0.2:
     js-stringify "^1.0.1"
     pug-runtime "^2.0.3"
 
-pug-base-layout@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/pug-base-layout/-/pug-base-layout-0.2.1.tgz#11265e664c80b529f1f51dea133ad8d3bae9c99e"
+pug-base-layout@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/pug-base-layout/-/pug-base-layout-0.3.0.tgz#92644a6737dcf26fbcdd37474b4188d15f3771bd"
   dependencies:
     pug "^2.0.0-rc.4"
 

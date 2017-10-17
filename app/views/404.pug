@@ -1,0 +1,11 @@
+//- © Andrew Wei
+
+extends /views/layouts/base
+
+append config
+  - $title = __(`404-title`)
+  - $bodyClass = [`dark`]
+
+block body
+  main#error
+    a(href='/'): img.logo(src=require('assets/images/app-icon.png'))
