@@ -1,8 +1,8 @@
 {
   "name": "calculator3-www",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "NOLICENSE",
   "scripts": {
     "clean": "webpack-mpa-builder clean",
     "build": "webpack-mpa-builder build",
@@ -14,11 +14,11 @@
   "dependencies": {},
   "devDependencies": {
     "animejs": "^2.2.0",
-    "document-register-element": "^1.7.0",
-    "meno": "^0.26.0",
-    "minuet": "^1.1.0",
-    "moment": "^2.19.1",
+    "document-register-element": "^1.8.1",
+    "meno": "^0.27.0",
+    "minuet": "^1.3.0",
+    "moment": "^2.22.1",
     "pug-base-layout": "^0.3.0",
-    "webpack-mpa-builder": "^0.6.0"
+    "webpack-mpa-builder": "^0.7.0"
   }
 }
