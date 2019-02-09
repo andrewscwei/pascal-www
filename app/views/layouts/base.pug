@@ -4,6 +4,8 @@ extends ../../../node_modules/pug-base-layout/index
 
 append config
   -
+    $appName = $config.title
+    $title = $config.title
     $description = $config.description
     $keywords = $config.keywords
     $url = $config.url
