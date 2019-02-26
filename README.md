@@ -8,7 +8,3 @@ Official website of the iOS [Calculator³](https://itunes.apple.com/us/app/calcu
 $ yarn
 $ yarn dev
 ```
-
-## License
-
-© Andrew Wei
