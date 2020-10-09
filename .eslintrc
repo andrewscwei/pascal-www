@@ -126,7 +126,7 @@
     "arrow-body-style": "error",
     "arrow-parens": [
       "error",
-      "always"
+      "as-needed"
     ],
     "block-spacing": "error",
     "brace-style": [

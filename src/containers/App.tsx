@@ -6,9 +6,8 @@ import React, { Fragment, PureComponent } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { connect } from 'react-redux';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Action, bindActionCreators, Dispatch } from 'redux';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import routes from '../routes';
@@ -63,12 +62,8 @@ class App extends PureComponent<Props, State> {
       <ThemeProvider theme={theme}>
         <Fragment>
           <GlobalStyles/>
-          <Header/>
-          <StyledBody>
-            <CSSTransition key={route.location.key} timeout={300} classNames='route-transition'>
-              <Switch location={route.location}>{this.generateRoutes()}</Switch>
-            </CSSTransition>
-          </StyledBody>
+          <Header isCollapsed={false}/>
+          <Switch location={route.location}>{this.generateRoutes()}</Switch>
           <Footer/>
         </Fragment>
       </ThemeProvider>
@@ -104,28 +99,4 @@ export default hot(connect((state: AppState): StateProps => ({
 
 const GlobalStyles = createGlobalStyle<any>`
   ${globalStyles}
-`;
-
-const StyledBody = styled(TransitionGroup)`
-  height: 100%;
-  position: absolute;
-  width: 100%;
-
-  .route-transition-enter {
-    opacity: 0;
-  }
-
-  .route-transition-enter.route-transition-enter-active {
-    opacity: 1;
-    transition: all .3s;
-  }
-
-  .route-transition-exit {
-    opacity: 1;
-  }
-
-  .route-transition-exit.route-transition-exit-active {
-    opacity: 0;
-    transition: all .3s;
-  }
 `;

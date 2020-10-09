@@ -27,11 +27,11 @@ export interface State {
 
 class Home extends PureComponent<Props, State> {
   componentDidMount() {
-    document.title = this.props.i18n.ltxt('home');
+    document.title = this.props.i18n.ltxt('home-page-title');
   }
 
   render() {
-    const { t } = this.props.i18n;
+    const { ltxt } = this.props.i18n;
 
     return (
       <StyledRoot>
@@ -51,4 +51,6 @@ export default connect(
 )(Home);
 
 const StyledRoot = styled.div`
+  width: 100%;
+  min-height: 100%;
 `;

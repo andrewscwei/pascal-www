@@ -16,7 +16,7 @@ interface StateProps {
 interface DispatchProps {}
 
 type OwnProps = PropsWithChildren<{
-  isCollapsed: Boolean;
+  isCollapsed: boolean;
 }>;
 
 interface Props extends StateProps, DispatchProps, OwnProps {}
@@ -52,7 +52,7 @@ const StyledMonogram = styled(Monogram)`
   margin-right: 1rem;
 `;
 
-const StyledRoot = styled.header<{ isCollapsed: Boolean }>`
+const StyledRoot = styled.header<{ isCollapsed: boolean }>`
   ${container.fhcs}
   ${align.ftl}
   ${animations.transition('opacity', 0.2)}

@@ -19,4 +19,9 @@ export const fonts = {
     font-size: 1.4rem;
     font-weight: 400;
   `,
+  f1: css`
+    font-family: ProximaNova, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+  `,
 };
