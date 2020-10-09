@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactElement } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Action, bindActionCreators, Dispatch } from 'redux';
 import styled from 'styled-components';
@@ -11,21 +11,19 @@ interface StateProps {
 
 interface DispatchProps {}
 
-type OwnProps = PropsWithChildren<{
+interface OwnProps {}
 
-}>;
+export interface Props extends StateProps, DispatchProps, OwnProps {}
 
-interface Props extends StateProps, DispatchProps, OwnProps {}
+export interface State {}
 
-function Footer({ i18n }: Props): ReactElement {
-  return (
-    <StyledRoot>
-      <span></span>
-      <nav>
-        <a href={`mailto:${__APP_CONFIG__.supportEmail}`}/>
-      </nav>
-    </StyledRoot>
-  );
+class Hero extends PureComponent<Props, State> {
+  render() {
+    return (
+      <StyledRoot>
+      </StyledRoot>
+    );
+  }
 }
 
 export default connect(
@@ -35,10 +33,7 @@ export default connect(
   (dispatch: Dispatch<Action>): DispatchProps => bindActionCreators({
 
   }, dispatch),
-)(Footer);
+)(Hero);
 
-const StyledRoot = styled.footer`
-  > a {
-
-  }
+const StyledRoot = styled.div`
 `;

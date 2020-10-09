@@ -6,13 +6,13 @@ type Props = PropsWithChildren<{
   className?: string;
 }>;
 
-function ReactLogo({ className }: Props): ReactElement {
+function Monogram({ className }: Props): ReactElement {
   return (
     <StyledRoot className={className} dangerouslySetInnerHTML={{ __html: $$Logo }}/>
   );
 }
 
-export default ReactLogo;
+export default Monogram;
 
 const StyledRoot = styled.figure`
   animation: rotate 5s linear infinite;

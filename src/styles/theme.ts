@@ -10,5 +10,5 @@ export const colors = {
 };
 
 export const fonts = {
-  body: 'Roboto, sans-serif',
+  body: 'ProximaNova, sans-serif',
 };

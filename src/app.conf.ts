@@ -19,6 +19,8 @@ export default {
   // Google Tag Manager ID (i.e. GTM-XXXXXXX)
   gtag: undefined,
 
+  supportEmail: 'andrewscwei@gmail.com',
+
   // HTML metadata.
   meta: {
     // Title of the app.
