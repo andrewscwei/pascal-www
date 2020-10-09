@@ -59,5 +59,4 @@ const StyledRoot = styled.footer`
       color: ${props => props.theme.colors.white};
     }
   }
-
 `;

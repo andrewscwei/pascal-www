@@ -1,4 +1,4 @@
-import { align, animations, container, selectors } from 'promptu';
+import { align, animations, container, media, selectors } from 'promptu';
 import React, { PropsWithChildren, ReactElement } from 'react';
 import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
@@ -49,7 +49,7 @@ export default connect(
 )(Header);
 
 const StyledMonogram = styled(Monogram)`
-  margin-right: 1rem;
+  margin-right: 1.6rem;
 `;
 
 const StyledRoot = styled.header<{ isCollapsed: boolean }>`
@@ -58,9 +58,13 @@ const StyledRoot = styled.header<{ isCollapsed: boolean }>`
   ${animations.transition('opacity', 0.2)}
   height: ${props => props.isCollapsed ? '7rem' : '10rem'};
   width: 100%;
-  padding: 2rem 5%;
+  padding: 3rem 5%;
   z-index: 1000;
   color: ${props => props.theme.colors.white};
+
+  @media ${media.gtmobile} {
+    height: ${props => props.isCollapsed ? '7rem' : '10rem'};
+  }
 
   > a {
     ${container.fhcl}
@@ -79,13 +83,23 @@ const StyledRoot = styled.header<{ isCollapsed: boolean }>`
   > nav {
     ${container.fhcr}
 
+    @media ${media.lttablet} {
+      display: none;
+    }
+
     ${selectors.eblc} {
-      margin-right: 1rem;
+      margin-right: 2rem;
     }
 
     a {
       ${props => props.theme.fonts.n1}
+      ${animations.transition('opacity', 100)}
       color: ${props => props.theme.colors.white};
+      opacity: 0.6;
+
+      ${selectors.hwot} {
+        opacity: 1;
+      }
     }
   }
 `;

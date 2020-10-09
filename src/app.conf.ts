@@ -21,6 +21,8 @@ export default {
 
   supportEmail: 'andrewscwei@gmail.com',
 
+  appStoreUrl: 'https://apps.apple.com/app/id828838134',
+
   // HTML metadata.
   meta: {
     // Title of the app.
