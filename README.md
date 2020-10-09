@@ -1,10 +1,15 @@
-# Calculator³ Official Website
+# Pascal Official Website
 
-Official website of the iOS [Calculator³](https://itunes.apple.com/us/app/calculator3/id828838134?ls=1&mt=8) app.
+Official website of [Pascal](https://apps.apple.com/us/app/id828838134), the 3-in-1 calculator.
 
 ## Usage
 
 ```sh
-$ yarn
-$ yarn dev
+$ npm install
+
+# Run in development
+$ npm run dev
+
+# Build for production
+$ npm run build
 ```
