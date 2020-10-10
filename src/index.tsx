@@ -2,6 +2,7 @@
  * @file Entry file.
  */
 
+import isTouchDevice from 'is-touch-device';
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -11,6 +12,10 @@ import store from './store';
 
 if (process.env.NODE_ENV === 'development') {
   window.localStorage.debug = 'app*';
+}
+
+if (isTouchDevice()) {
+  document.documentElement.classList.add('touch');
 }
 
 // Generator for base markup.

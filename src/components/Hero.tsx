@@ -1,5 +1,5 @@
 import $$AppStoreButton from '!!raw-loader!../assets/app-store-button.svg';
-import { container } from 'promptu';
+import { animations, container, selectors } from 'promptu';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Action, bindActionCreators, Dispatch } from 'redux';
@@ -47,6 +47,16 @@ const StyledAppStoreButton = styled.a`
   margin-top: 4rem;
   height: 6rem;
   width: auto;
+
+  svg * {
+    ${animations.transition('fill', 50)}
+  }
+
+  ${selectors.hwot} {
+    svg * {
+      fill: ${props => props.theme.colors.purple};
+    }
+  }
 `;
 
 const StyledContent = styled.div`
