@@ -139,11 +139,12 @@ const config: Configuration = {
   ...!isDev ? {} : {
     devServer: {
       headers: {
-        'Access-Control-Allow-Origin': `http://localhost:${port}`,
+        'Access-Control-Allow-Origin': `http://0.0.0.0:${port}`,
         'Access-Control-Allow-Methods': 'GET,OPTIONS,HEAD,PUT,POST,DELETE,PATCH',
         'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
         'Access-Control-Allow-Credentials': 'true',
       },
+      host: '0.0.0.0',
       historyApiFallback: true,
       hot: true,
       port,

@@ -16,6 +16,7 @@ export const fonts = {
     font-family: ProximaNova, sans-serif;
     font-size: 2.4rem;
     font-weight: 700;
+    line-height: 140%;
     text-transform: uppercase;
     letter-spacing: .3rem;
 
@@ -30,22 +31,82 @@ export const fonts = {
     line-height: 120%;
     letter-spacing: .1rem;
 
-    strong {
+    strong, b {
       font-weight: 700;
+    }
+
+    em, i {
+      font-style: italic;
     }
 
     @media ${media.gtmobile} {
       font-size: 4rem;
     }
   `,
+  h2: css`
+    font-family: ProximaNova, sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+  `,
+  h3: css`
+    font-family: ProximaNova, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+  `,
+  h4: css`
+    font-family: ProximaNova, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 130%;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+
+    strong, b {
+      font-weight: 700;
+    }
+
+    em, i {
+      font-style: italic;
+    }
+  `,
+  p1: css`
+    font-family: ProximaNova, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 130%;
+
+    strong, b {
+      font-weight: 700;
+    }
+
+    em, i {
+      font-style: italic;
+    }
+  `,
   n1: css`
     font-family: ProximaNova, sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
+    line-height: 120%;
+
+    strong, b {
+      font-weight: 700;
+    }
+
+    em, i {
+      font-style: italic;
+    }
   `,
   f1: css`
     font-family: ProximaNova, sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 400;
+    line-height: 120%;
   `,
 };

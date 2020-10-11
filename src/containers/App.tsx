@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import { Action, bindActionCreators, Dispatch } from 'redux';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import routes from '../routes';
 import { AppState } from '../store';
@@ -63,6 +64,7 @@ class App extends PureComponent<Props, State> {
           <GlobalStyles/>
           <Header isCollapsed={false}/>
           <Switch location={route.location}>{this.generateRoutes()}</Switch>
+          <Footer/>
         </Fragment>
       </ThemeProvider>
     );

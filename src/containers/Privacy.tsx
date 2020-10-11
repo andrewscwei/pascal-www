@@ -1,6 +1,6 @@
-import { container } from 'promptu';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { Action, bindActionCreators, Dispatch } from 'redux';
 import styled from 'styled-components';
 import { AppState } from '../store';
@@ -10,28 +10,31 @@ interface StateProps {
   i18n: I18nState;
 }
 
-interface DispatchProps {}
+interface DispatchProps {
 
-interface OwnProps {
-  isActive: boolean;
 }
+
+type OwnProps = RouteComponentProps<{
+
+}>;
 
 export interface Props extends StateProps, DispatchProps, OwnProps {}
 
-export interface State {}
+export interface State {
 
-class Scientific extends PureComponent<Props, State> {
-  static defaultProps: Partial<Props> = {
-    isActive: false,
-  };
+}
+
+class Privacy extends PureComponent<Props, State> {
+
+  componentDidMount() {
+    document.title = this.props.i18n.ltxt('privacy-page-title');
+  }
 
   render() {
     const { ltxt } = this.props.i18n;
 
     return (
       <StyledRoot>
-        <StyledContent>
-        </StyledContent>
       </StyledRoot>
     );
   }
@@ -44,16 +47,9 @@ export default connect(
   (dispatch: Dispatch<Action>): DispatchProps => bindActionCreators({
 
   }, dispatch),
-)(Scientific);
-
-const StyledContent = styled.div`
-  ${container.fvtl}
-  max-width: 50rem;
-`;
+)(Privacy);
 
 const StyledRoot = styled.div`
-  ${container.fvcr}
-  background: ${props => props.theme.colors.black};
+  width: 100%;
   height: 100%;
-  padding: 5% 5%;
 `;

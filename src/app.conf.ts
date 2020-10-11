@@ -21,6 +21,8 @@ export default {
 
   supportEmail: 'andrewscwei@gmail.com',
 
+  supportSubjectLine: 'Pascal Support',
+
   appStoreUrl: 'https://apps.apple.com/app/id828838134',
 
   // HTML metadata.
