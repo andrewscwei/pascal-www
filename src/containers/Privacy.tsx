@@ -1,3 +1,4 @@
+import { container } from 'promptu';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
@@ -35,6 +36,7 @@ class Privacy extends PureComponent<Props, State> {
 
     return (
       <StyledRoot>
+        <StyledContent dangerouslySetInnerHTML={{ __html: __PRIVACY_POLICY__ }}/>
       </StyledRoot>
     );
   }
@@ -49,7 +51,52 @@ export default connect(
   }, dispatch),
 )(Privacy);
 
+const StyledContent = styled.div`
+  color: ${props => props.theme.colors.white};
+
+  h1 {
+    ${props => props.theme.fonts.h2}
+
+    + * {
+      margin-top: 5rem;
+    }
+  }
+
+  h2 {
+    ${props => props.theme.fonts.h3}
+
+    + * {
+      margin-top: 1.4rem;
+    }
+  }
+
+  blockquote {
+    ${props => props.theme.fonts.p1}
+    margin: 1rem 0;
+    padding: 0;
+    font-style: italic;
+
+    + * {
+      margin-top: 5rem;
+    }
+  }
+
+  p, li {
+    ${props => props.theme.fonts.p1}
+
+    + p, + li {
+      margin-top: 1rem;
+    }
+
+    + h1, + h2, + h3 {
+      margin-top: 4rem;
+    }
+  }
+`;
+
 const StyledRoot = styled.div`
+  ${container.box}
+  padding: 20rem 5%;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 `;

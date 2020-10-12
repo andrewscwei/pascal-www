@@ -4,7 +4,9 @@
  */
 
 import CopyPlugin from 'copy-webpack-plugin';
+import fs from 'fs';
 import HTMLPlugin from 'html-webpack-plugin';
+import marked from 'marked';
 import path from 'path';
 import { Configuration, DefinePlugin, EnvironmentPlugin, IgnorePlugin } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -110,6 +112,7 @@ const config: Configuration = {
     }),
     new DefinePlugin({
       __APP_CONFIG__: JSON.stringify(appConf),
+      __PRIVACY_POLICY__: JSON.stringify(marked(fs.readFileSync(path.join(__dirname, '../PRIVACY.md'), 'utf8'))),
       __I18N_CONFIG__: JSON.stringify({
         defaultLocale: appConf.locales[0],
         locales,

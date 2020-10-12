@@ -1,4 +1,5 @@
 declare const __APP_CONFIG__: Readonly<{ [key: string]: any }>;
+declare const __PRIVACY_POLICY__: Readonly<string>;
 
 declare const __I18N_CONFIG__: Readonly<{
   defaultLocale: string;
