@@ -29,6 +29,8 @@ class Privacy extends PureComponent<Props, State> {
 
   componentDidMount() {
     document.title = this.props.i18n.ltxt('privacy-page-title');
+
+    window.scrollTo(0, 0);
   }
 
   render() {
@@ -52,6 +54,8 @@ export default connect(
 )(Privacy);
 
 const StyledContent = styled.div`
+  width: 100%;
+  max-width: 50rem;
   color: ${props => props.theme.colors.white};
 
   h1 {
@@ -95,7 +99,7 @@ const StyledContent = styled.div`
 `;
 
 const StyledRoot = styled.div`
-  ${container.box}
+  ${container.fvtc}
   padding: 20rem 5%;
   width: 100%;
   min-height: 100%;
