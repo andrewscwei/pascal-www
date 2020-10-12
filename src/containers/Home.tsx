@@ -56,10 +56,10 @@ class Home extends PureComponent<Props, State> implements UpdateDelegator {
     return (
       <Fragment>
         <Hero/>
-        <Feature slug='scientific' numFeatures={3}/>
-        <Feature slug='graphing'/>
-        <Feature slug='programmer' numFeatures={3}/>
-        <Feature slug='extensions'/>
+        <Feature slug='scientific' numFeatures={3} contentAlignment='left'/>
+        <Feature slug='graphing' numFeatures={2} contentAlignment='center'/>
+        <Feature slug='programmer' numFeatures={3} contentAlignment='right'/>
+        <Feature slug='extensions' numFeatures={2} contentAlignment='center'/>
       </Fragment>
     );
   }
@@ -73,4 +73,3 @@ export default connect(
 
   }, dispatch),
 )(Home);
-

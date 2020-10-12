@@ -24,6 +24,22 @@ export const fonts = {
       font-size: 3rem;
     }
   `,
+  t2: css`
+    font-family: ProximaNova, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 140%;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+  `,
+  t3: css`
+    font-family: ProximaNova, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 140%;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+  `,
   h1: css`
     font-family: ProximaNova, sans-serif;
     font-size: 3.4rem;

@@ -1,11 +1,11 @@
-import $$AppStoreButton from '!!raw-loader!../assets/app-store-button.svg';
-import { animations, container, selectors } from 'promptu';
+import { container } from 'promptu';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Action, bindActionCreators, Dispatch } from 'redux';
 import styled from 'styled-components';
 import { AppState } from '../store';
 import { I18nState } from '../store/i18n';
+import AppStoreButton from './AppStoreButton';
 
 interface StateProps {
   i18n: I18nState;
@@ -33,7 +33,7 @@ class Hero extends PureComponent<Props, State> {
       <StyledRoot>
         <StyledContent>
           <StyledTitle dangerouslySetInnerHTML={{ __html: ltxt('app-description') }}/>
-          <StyledAppStoreButton href={__APP_CONFIG__.appStoreUrl} dangerouslySetInnerHTML={{ __html: $$AppStoreButton }}/>
+          <StyledAppStoreButton/>
         </StyledContent>
       </StyledRoot>
     );
@@ -49,20 +49,9 @@ export default connect(
   }, dispatch),
 )(Hero);
 
-const StyledAppStoreButton = styled.a`
+const StyledAppStoreButton = styled(AppStoreButton)`
   margin-top: 4rem;
   height: 6rem;
-  width: auto;
-
-  svg * {
-    ${animations.transition('fill', 50)}
-  }
-
-  ${selectors.hwot} {
-    svg * {
-      fill: ${props => props.theme.colors.purple};
-    }
-  }
 `;
 
 const StyledContent = styled.div`

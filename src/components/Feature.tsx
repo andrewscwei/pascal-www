@@ -1,8 +1,8 @@
-import { container, selectors } from 'promptu';
+import { container, media, selectors } from 'promptu';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Action, bindActionCreators, Dispatch } from 'redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { AppState } from '../store';
 import { I18nState } from '../store/i18n';
 
@@ -16,7 +16,10 @@ interface OwnProps {
   isActive: boolean;
   slug: string;
   numFeatures: number;
+  contentAlignment: ContentAlignment;
 }
+
+type ContentAlignment = 'left' | 'center' | 'right';
 
 export interface Props extends StateProps, DispatchProps, OwnProps {}
 
@@ -26,21 +29,22 @@ class Feature extends PureComponent<Props, State> {
   static defaultProps: Partial<Props> = {
     isActive: false,
     numFeatures: 2,
+    contentAlignment: 'left',
   };
 
   render() {
-    const { slug, numFeatures, i18n } = this.props;
+    const { slug, numFeatures, contentAlignment, i18n } = this.props;
     const { ltxt, locale } = i18n;
 
     return (
-      <StyledRoot>
-        <StyledTitle>
+      <StyledRoot contentAlignment={contentAlignment}>
+        <StyledTitle contentAlignment={contentAlignment}>
           <h2 dangerouslySetInnerHTML={{ __html: ltxt(`${slug}-title`)}}/>
           <h4 dangerouslySetInnerHTML={{ __html: ltxt(`${slug}-subtitle`)}}/>
         </StyledTitle>
-        <StyledContent>
+        <StyledContent contentAlignment={contentAlignment}>
           {[...Array(numFeatures)].map((v, i) => (
-            <StyledCopy>
+            <StyledCopy key={`copy-${i}`}>
               <h3 dangerouslySetInnerHTML={{ __html: ltxt(`${slug}-feature-${i+1}-title`)}}/>
               <span dangerouslySetInnerHTML={{ __html: ltxt(`${slug}-feature-${i+1}-description`)}}/>
             </StyledCopy>
@@ -60,8 +64,23 @@ export default connect(
   }, dispatch),
 )(Feature);
 
-const StyledTitle = styled.div`
-  ${container.fvtl}
+const StyledTitle = styled.div<{
+  contentAlignment: ContentAlignment;
+}>`
+  ${props => {
+    switch (props.contentAlignment) {
+    case 'left': return css`
+      ${container.fvtl}
+    `;
+    case 'right': return css`
+      ${container.fvtr}
+    `;
+    default: return css`
+      ${container.fvtc}
+    `;
+    }
+  }}
+
   color: ${props => props.theme.colors.white};
   margin: 10rem 5%;
 
@@ -77,7 +96,7 @@ const StyledTitle = styled.div`
 const StyledCopy = styled.div`
   ${container.fvtl}
   color: ${props => props.theme.colors.white};
-  max-width: 28rem;
+  max-width: 100%;
   width: 100%;
 
   h3 {
@@ -88,19 +107,47 @@ const StyledCopy = styled.div`
   span {
     ${props => props.theme.fonts.p1}
   }
+
+  @media ${media.gtmobile} {
+    max-width: 28rem;
+  }
 `;
 
-const StyledContent = styled.div`
-  ${container.fhtc}
+const StyledContent = styled.div<{
+  contentAlignment: ContentAlignment;
+}>`
+  ${container.fvtc}
   padding: 5rem 5%;
   width: 100%;
 
   ${selectors.eblc} {
-    margin-right: 5rem;
+    margin: 0 0 3rem 0;
+  }
+
+  @media ${media.gtmobile} {
+    ${props => {
+      switch (props.contentAlignment) {
+      case 'left': return css`
+        ${container.fhtl}
+      `;
+      case 'right': return css`
+        ${container.fhtr}
+      `;
+      default: return css`
+        ${container.fhtc}
+      `;
+      }
+    }}
+
+    ${selectors.eblc} {
+      margin: 0 5rem 0 0;
+    }
   }
 `;
 
-const StyledRoot = styled.div`
+const StyledRoot = styled.div<{
+  contentAlignment: ContentAlignment;
+}>`
   ${container.fvsl}
   background: ${props => props.theme.colors.black};
   width: 100%;
