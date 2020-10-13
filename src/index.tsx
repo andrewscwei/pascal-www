@@ -2,20 +2,20 @@
  * @file Entry file.
  */
 
-import isTouchDevice from 'is-touch-device';
-import React from 'react';
-import { hydrate, render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, RouteComponentProps } from 'react-router-dom';
-import App from './containers/App';
-import store from './store';
+import isTouchDevice from 'is-touch-device'
+import React from 'react'
+import { hydrate, render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Route, RouteComponentProps } from 'react-router-dom'
+import App from './containers/App'
+import store from './store'
 
 if (process.env.NODE_ENV === 'development') {
-  window.localStorage.debug = 'app*';
+  window.localStorage.debug = 'app*'
 }
 
 if (isTouchDevice()) {
-  document.documentElement.classList.add('touch');
+  document.documentElement.classList.add('touch')
 }
 
 // Generator for base markup.
@@ -27,14 +27,14 @@ const markup = () => (
       )}/>
     </Router>
   </Provider>
-);
+)
 
 // Render the app.
-const root = document.getElementById('app');
+const root = document.getElementById('app')
 
 if (root?.hasChildNodes() && process.env.NODE_ENV !== 'development') {
-  hydrate(markup(), root);
+  hydrate(markup(), root)
 }
 else {
-  render(markup(), root);
+  render(markup(), root)
 }

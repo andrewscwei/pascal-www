@@ -81,11 +81,11 @@
       "error",
       {
         "multiline": {
-          "delimiter": "semi",
+          "delimiter": "none",
           "requireLast": true
         },
         "singleline": {
-          "delimiter": "semi",
+          "delimiter": "comma",
           "requireLast": false
         }
       }
@@ -109,10 +109,6 @@
       {
         "avoidEscape": true
       }
-    ],
-    "@typescript-eslint/semi": [
-      "error",
-      "always"
     ],
     "@typescript-eslint/triple-slash-reference": [
       "error",
@@ -288,7 +284,7 @@
     "radix": "error",
     "semi": [
       "error",
-      "always"
+      "never"
     ],
     "space-before-blocks": [
       "error",

@@ -2,7 +2,7 @@
 
 > Last updated: October 12, 2020
 
-In summary, Pascal ("we", or "us") does not share any personal information or data.
+**Pascal ("we", or "us") does not share any personal information or data.**
 
 ## Information Pascal Collects
 

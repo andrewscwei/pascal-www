@@ -1,14 +1,14 @@
-import { container } from 'promptu';
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { Action, bindActionCreators, Dispatch } from 'redux';
-import styled from 'styled-components';
-import { AppState } from '../store';
-import { I18nState } from '../store/i18n';
-import AppStoreButton from './AppStoreButton';
+import { container } from 'promptu'
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { Action, bindActionCreators, Dispatch } from 'redux'
+import styled from 'styled-components'
+import { AppState } from '../store'
+import { I18nState } from '../store/i18n'
+import AppStoreButton from './AppStoreButton'
 
 interface StateProps {
-  i18n: I18nState;
+  i18n: I18nState
 }
 
 interface DispatchProps {}
@@ -16,7 +16,7 @@ interface DispatchProps {}
 interface OwnProps {}
 
 export interface Props extends StateProps, DispatchProps, OwnProps {
-  isActive: boolean;
+  isActive: boolean
 }
 
 export interface State {}
@@ -24,10 +24,10 @@ export interface State {}
 class Hero extends PureComponent<Props, State> {
   static defaultProps: Partial<Props> = {
     isActive: false,
-  };
+  }
 
   render() {
-    const { ltxt } = this.props.i18n;
+    const { ltxt } = this.props.i18n
 
     return (
       <StyledRoot>
@@ -36,7 +36,7 @@ class Hero extends PureComponent<Props, State> {
           <StyledAppStoreButton/>
         </StyledContent>
       </StyledRoot>
-    );
+    )
   }
 }
 
@@ -47,26 +47,26 @@ export default connect(
   (dispatch: Dispatch<Action>): DispatchProps => bindActionCreators({
 
   }, dispatch),
-)(Hero);
+)(Hero)
 
 const StyledAppStoreButton = styled(AppStoreButton)`
   margin-top: 4rem;
   height: 6rem;
-`;
+`
 
 const StyledContent = styled.div`
   ${container.fvtl}
   max-width: 50rem;
-`;
+`
 
 const StyledTitle = styled.h1`
   ${props => props.theme.fonts.h1}
   color: ${props => props.theme.colors.white};
-`;
+`
 
 const StyledRoot = styled.div`
   ${container.fvcr}
   padding: 5% 5%;
   background: ${props => props.theme.colors.black};
   height: 100%;
-`;
+`

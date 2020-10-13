@@ -1,5 +1,5 @@
-import { media } from 'promptu';
-import { css } from 'styled-components';
+import { media } from 'promptu'
+import { css } from 'styled-components'
 
 export const colors = {
   background: '#111',
@@ -8,7 +8,7 @@ export const colors = {
   green: '#7d24e2',
   white: '#fff',
   black: '#111',
-};
+}
 
 export const fonts = {
   body: 'ProximaNova, sans-serif',
@@ -125,4 +125,4 @@ export const fonts = {
     font-weight: 400;
     line-height: 120%;
   `,
-};
+}

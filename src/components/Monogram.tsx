@@ -1,10 +1,10 @@
-import { container } from 'promptu';
-import React, { PropsWithChildren, ReactElement } from 'react';
-import styled from 'styled-components';
+import { container } from 'promptu'
+import React, { PropsWithChildren, ReactElement } from 'react'
+import styled from 'styled-components'
 
 type Props = PropsWithChildren<{
-  className?: string;
-}>;
+  className?: string
+}>
 
 function Monogram({ className }: Props): ReactElement {
   return (
@@ -24,10 +24,10 @@ function Monogram({ className }: Props): ReactElement {
         </g>
       </svg>
     </StyledRoot>
-  );
+  )
 }
 
-export default Monogram;
+export default Monogram
 
 const StyledRoot = styled.figure`
   ${container.fhcc}
@@ -41,4 +41,4 @@ const StyledRoot = styled.figure`
     height: 100%;
     width: auto;
   }
-`;
+`

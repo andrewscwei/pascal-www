@@ -1,14 +1,14 @@
-import { container } from 'promptu';
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
-import { Action, bindActionCreators, Dispatch } from 'redux';
-import styled from 'styled-components';
-import { AppState } from '../store';
-import { I18nState } from '../store/i18n';
+import { container } from 'promptu'
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { RouteComponentProps } from 'react-router'
+import { Action, bindActionCreators, Dispatch } from 'redux'
+import styled from 'styled-components'
+import { AppState } from '../store'
+import { I18nState } from '../store/i18n'
 
 interface StateProps {
-  i18n: I18nState;
+  i18n: I18nState
 }
 
 interface DispatchProps {
@@ -17,7 +17,7 @@ interface DispatchProps {
 
 type OwnProps = RouteComponentProps<{
 
-}>;
+}>
 
 export interface Props extends StateProps, DispatchProps, OwnProps {}
 
@@ -28,19 +28,19 @@ export interface State {
 class Privacy extends PureComponent<Props, State> {
 
   componentDidMount() {
-    document.title = this.props.i18n.ltxt('privacy-page-title');
+    document.title = this.props.i18n.ltxt('privacy-page-title')
 
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }
 
   render() {
-    const { ltxt } = this.props.i18n;
+    const { ltxt } = this.props.i18n
 
     return (
       <StyledRoot>
         <StyledContent dangerouslySetInnerHTML={{ __html: __PRIVACY_POLICY__ }}/>
       </StyledRoot>
-    );
+    )
   }
 }
 
@@ -51,7 +51,7 @@ export default connect(
   (dispatch: Dispatch<Action>): DispatchProps => bindActionCreators({
 
   }, dispatch),
-)(Privacy);
+)(Privacy)
 
 const StyledContent = styled.div`
   width: 100%;
@@ -96,11 +96,11 @@ const StyledContent = styled.div`
       margin-top: 4rem;
     }
   }
-`;
+`
 
 const StyledRoot = styled.div`
   ${container.fvtc}
   padding: 20rem 5%;
   width: 100%;
   min-height: 100%;
-`;
+`

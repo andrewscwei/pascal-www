@@ -1,15 +1,15 @@
-import { DirtyInfo, DirtyType, ScrollDelegate, UpdateDelegator } from 'dirty-dom';
-import React, { Fragment, PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
-import { Action, bindActionCreators, Dispatch } from 'redux';
-import Feature from '../components/Feature';
-import Hero from '../components/Hero';
-import { AppState } from '../store';
-import { I18nState } from '../store/i18n';
+import { DirtyInfo, DirtyType, ScrollDelegate, UpdateDelegator } from 'dirty-dom'
+import React, { Fragment, PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { RouteComponentProps } from 'react-router'
+import { Action, bindActionCreators, Dispatch } from 'redux'
+import Feature from '../components/Feature'
+import Hero from '../components/Hero'
+import { AppState } from '../store'
+import { I18nState } from '../store/i18n'
 
 interface StateProps {
-  i18n: I18nState;
+  i18n: I18nState
 }
 
 interface DispatchProps {
@@ -18,7 +18,7 @@ interface DispatchProps {
 
 type OwnProps = RouteComponentProps<{
 
-}>;
+}>
 
 export interface Props extends StateProps, DispatchProps, OwnProps {}
 
@@ -28,30 +28,30 @@ export interface State {
 
 class Home extends PureComponent<Props, State> implements UpdateDelegator {
 
-  scrollDelegate?: ScrollDelegate;
+  scrollDelegate?: ScrollDelegate
 
   componentDidMount() {
-    document.title = this.props.i18n.ltxt('home-page-title');
+    document.title = this.props.i18n.ltxt('home-page-title')
 
-    this.scrollDelegate = new ScrollDelegate(this);
-    this.scrollDelegate.init();
+    this.scrollDelegate = new ScrollDelegate(this)
+    this.scrollDelegate.init()
   }
 
   componentWillUnmount() {
-    this.scrollDelegate?.deinit();
-    this.scrollDelegate = undefined;
+    this.scrollDelegate?.deinit()
+    this.scrollDelegate = undefined
   }
 
   update(info: DirtyInfo) {
-    const { [DirtyType.POSITION]: position, [DirtyType.SIZE]: size, [DirtyType.INPUT]: input } = info;
+    const { [DirtyType.POSITION]: position, [DirtyType.SIZE]: size, [DirtyType.INPUT]: input } = info
 
     if (position) {
-      console.log(this.scrollDelegate?.minPosition, this.scrollDelegate?.maxPosition);
+      console.log(this.scrollDelegate?.minPosition, this.scrollDelegate?.maxPosition)
     }
   }
 
   render() {
-    const { ltxt } = this.props.i18n;
+    const { ltxt } = this.props.i18n
 
     return (
       <Fragment>
@@ -61,7 +61,7 @@ class Home extends PureComponent<Props, State> implements UpdateDelegator {
         <Feature slug='programmer' numFeatures={3} contentAlignment='right'/>
         <Feature slug='extensions' numFeatures={2} contentAlignment='center'/>
       </Fragment>
-    );
+    )
   }
 }
 
@@ -72,4 +72,4 @@ export default connect(
   (dispatch: Dispatch<Action>): DispatchProps => bindActionCreators({
 
   }, dispatch),
-)(Home);
+)(Home)

@@ -1,28 +1,28 @@
-import { align, animations, container, media, selectors } from 'promptu';
-import React, { PropsWithChildren, ReactElement } from 'react';
-import { connect } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
-import { Action, bindActionCreators, Dispatch } from 'redux';
-import styled from 'styled-components';
-import { AppState } from '../store';
-import { I18nState } from '../store/i18n';
-import { getLocalizedPath } from '../utils/i18n';
-import Monogram from './Monogram';
+import { align, animations, container, media, selectors } from 'promptu'
+import React, { PropsWithChildren, ReactElement } from 'react'
+import { connect } from 'react-redux'
+import { Link, NavLink } from 'react-router-dom'
+import { Action, bindActionCreators, Dispatch } from 'redux'
+import styled from 'styled-components'
+import { AppState } from '../store'
+import { I18nState } from '../store/i18n'
+import { getLocalizedPath } from '../utils/i18n'
+import Monogram from './Monogram'
 
 interface StateProps {
-  i18n: I18nState;
+  i18n: I18nState
 }
 
 interface DispatchProps {}
 
 type OwnProps = PropsWithChildren<{
-  isCollapsed: boolean;
-}>;
+  isCollapsed: boolean
+}>
 
 interface Props extends StateProps, DispatchProps, OwnProps {}
 
 function Header({ i18n, isCollapsed }: Props): ReactElement {
-  const { ltxt, locale } = i18n;
+  const { ltxt, locale } = i18n
 
   return (
     <StyledRoot isCollapsed={isCollapsed}>
@@ -37,7 +37,7 @@ function Header({ i18n, isCollapsed }: Props): ReactElement {
         <NavLink to='/#programmer'>{ltxt('programmer-title')}</NavLink>
       </StyledNavigation>
     </StyledRoot>
-  );
+  )
 }
 
 export default connect(
@@ -47,7 +47,7 @@ export default connect(
   (dispatch: Dispatch<Action>): DispatchProps => bindActionCreators({
 
   }, dispatch),
-)(Header);
+)(Header)
 
 const StyledBacking = styled.div<{ isVisible: boolean }>`
   ${align.tl}
@@ -57,11 +57,11 @@ const StyledBacking = styled.div<{ isVisible: boolean }>`
   opacity: ${props => props.isVisible ? 1 : 0};
   transform: ${props => props.isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, -100%, 0)'};
   width: 100%;
-`;
+`
 
 const StyledMonogram = styled(Monogram)`
   margin-right: 1.6rem;
-`;
+`
 
 const StyledNavigation = styled.nav`
   ${container.fhcr}
@@ -85,7 +85,7 @@ const StyledNavigation = styled.nav`
       opacity: 1;
     }
   }
-`;
+`
 
 const StyledRoot = styled.header<{ isCollapsed: boolean }>`
   ${container.fhcs}
@@ -114,4 +114,4 @@ const StyledRoot = styled.header<{ isCollapsed: boolean }>`
       opacity: 0.8;
     }
   }
-`;
+`
