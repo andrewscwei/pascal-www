@@ -67,6 +67,6 @@ const StyledTitle = styled.h1`
 const StyledRoot = styled.div`
   ${container.fvcr}
   padding: 5% 5%;
-  background: ${props => props.theme.colors.black};
   height: 100%;
+  position: relative;
 `

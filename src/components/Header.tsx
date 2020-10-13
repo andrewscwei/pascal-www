@@ -1,7 +1,7 @@
 import { align, animations, container, media, selectors } from 'promptu'
 import React, { PropsWithChildren, ReactElement } from 'react'
 import { connect } from 'react-redux'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Action, bindActionCreators, Dispatch } from 'redux'
 import styled from 'styled-components'
 import { AppState } from '../store'
@@ -31,11 +31,6 @@ function Header({ i18n, isCollapsed }: Props): ReactElement {
         <StyledMonogram/>
         <h1>{ltxt('app-name')}</h1>
       </Link>
-      <StyledNavigation>
-        <NavLink to='/#scientific'>{ltxt('scientific-title')}</NavLink>
-        <NavLink to='/#graphing'>{ltxt('graphing-title')}</NavLink>
-        <NavLink to='/#programmer'>{ltxt('programmer-title')}</NavLink>
-      </StyledNavigation>
     </StyledRoot>
   )
 }

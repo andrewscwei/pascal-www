@@ -8,8 +8,14 @@ export default css`
   html,
   body {
     background: ${theme.colors.background};
-    font-family: ${theme.fonts.body};
+    font-family: ProximaNova, sans-serif;
     height: 100%;
     width: 100%;
   }
+
+  h1 { ${theme.fonts.h1} }
+  h2 { ${theme.fonts.h2} }
+  h3 { ${theme.fonts.h3} }
+  h4 { ${theme.fonts.h4} }
+  span, p, li { ${theme.fonts.p1} }
 `

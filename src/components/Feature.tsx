@@ -1,10 +1,11 @@
-import { container, media, selectors } from 'promptu'
+import { align, container, media, selectors } from 'promptu'
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Action, bindActionCreators, Dispatch } from 'redux'
 import styled, { css } from 'styled-components'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
+import Background from './Background'
 
 interface StateProps {
   i18n: I18nState
@@ -38,16 +39,19 @@ class Feature extends PureComponent<Props, State> {
 
     return (
       <StyledRoot contentAlignment={contentAlignment}>
-        <StyledTitle contentAlignment={contentAlignment}>
-          <h2 dangerouslySetInnerHTML={{ __html: ltxt(`${slug}-title`) }}/>
-          <h4 dangerouslySetInnerHTML={{ __html: ltxt(`${slug}-subtitle`) }}/>
-        </StyledTitle>
+        <StyledBackground contentAlignment={contentAlignment}>
+          <Background slug={slug}/>
+        </StyledBackground>
         <StyledContent contentAlignment={contentAlignment}>
+          <span>
+            <h2 dangerouslySetInnerHTML={{ __html: ltxt(`${slug}-title`) }}/>
+            <h4 dangerouslySetInnerHTML={{ __html: ltxt(`${slug}-subtitle`) }}/>
+          </span>
           {[...Array(numFeatures)].map((v, i) => (
-            <StyledCopy key={`copy-${i}`}>
+            <article key={`copy-${i}`}>
               <h3 dangerouslySetInnerHTML={{ __html: ltxt(`${slug}-feature-${i+1}-title`) }}/>
               <span dangerouslySetInnerHTML={{ __html: ltxt(`${slug}-feature-${i+1}-description`) }}/>
-            </StyledCopy>
+            </article>
           ))}
         </StyledContent>
       </StyledRoot>
@@ -64,92 +68,135 @@ export default connect(
   }, dispatch),
 )(Feature)
 
-const StyledTitle = styled.div<{
-  contentAlignment: ContentAlignment
-}>`
-  ${props => {
-    switch (props.contentAlignment) {
-    case 'left': return css`
-      ${container.fvtl}
-    `
-    case 'right': return css`
-      ${container.fvtr}
-    `
-    default: return css`
-      ${container.fvtc}
-    `
-    }
-  }}
-
-  color: ${props => props.theme.colors.white};
-  margin: 10rem 5%;
-
-  h2 {
-    ${props => props.theme.fonts.h2}
-  }
-
-  h4 {
-    ${props => props.theme.fonts.h4}
-  }
-`
-
-const StyledCopy = styled.div`
-  ${container.fvtl}
-  color: ${props => props.theme.colors.white};
-  max-width: 100%;
-  width: 100%;
-
-  h3 {
-    ${props => props.theme.fonts.h3}
-    + * { margin-top: 1.2rem }
-  }
-
-  span {
-    ${props => props.theme.fonts.p1}
-  }
-
-  @media ${media.gtmobile} {
-    max-width: 28rem;
-  }
-`
-
 const StyledContent = styled.div<{
   contentAlignment: ContentAlignment
 }>`
-  ${container.fvtc}
+  ${container.fvtl}
+  ${selectors.eblc} { margin: 0 0 3rem 0; }
   padding: 5rem 5%;
+  position: relative;
   width: 100%;
 
-  ${selectors.eblc} {
-    margin: 0 0 3rem 0;
+  > span {
+    ${container.fvtl}
+    color: ${props => props.theme.colors.white};
+    margin: 0 0 5rem 0;
   }
 
-  @media ${media.gtmobile} {
+  > article {
+    ${container.fvtl}
+    color: ${props => props.theme.colors.white};
+    max-width: 26rem;
+    width: 100%;
+
+    h3 {
+      + * { margin-top: 1.2rem }
+    }
+
+    span {
+      ${props => props.theme.fonts.p1}
+    }
+  }
+
+  @media ${media.gtw(700)} {
+    padding: 5rem 8%;
+
     ${props => {
       switch (props.contentAlignment) {
         case 'left': return css`
-          ${container.fhtl}
+          ${container.fvcl}
+          ${selectors.eblc} { margin: 0 0 5rem 0; }
+
+          > span, article {
+            width: 30%;
+            max-width: 36rem;
+          }
+
+          > span { ${container.fvtl} }
+          > article { ${container.fvtl} }
         `
         case 'right': return css`
-          ${container.fhtr}
+          ${container.fvcr}
+          ${selectors.eblc} { margin: 0 0 5rem 0; }
+
+          > span, article {
+            width: 30%;
+            max-width: 36rem;
+          }
+
+          > span { ${container.fvtl} }
+          > article { ${container.fvtl} }
         `
         default: return css`
           ${container.fhtc}
+          ${selectors.eblc} { margin: 0 7rem 0 0; }
+
+          > span { ${container.fvtr} }
+
+          > article {
+            ${container.fvtl}
+            width: 30%;
+            max-width: 30rem;
+          }
         `
       }
     }}
-
-    ${selectors.eblc} {
-      margin: 0 5rem 0 0;
-    }
   }
 `
+
+const StyledBackground = styled.div<{
+  contentAlignment: ContentAlignment
+}>`
+  width: 100%;
+  height: 120vw;
+
+  @media ${media.gtw(700)} {
+    ${props => {
+      switch (props.contentAlignment) {
+        case 'left': return css`
+          ${align.br}
+          right: -15%;
+          height: 80%;
+        `
+        case 'right': return css`
+          ${align.bl}
+          left: -15%;
+          height: 80%;
+        `
+        default: return css`
+          ${align.tc}
+          height: 80%;
+        `
+      }
+    }}
+  }
+`;
 
 const StyledRoot = styled.div<{
   contentAlignment: ContentAlignment
 }>`
-  ${container.fvsl}
-  background: ${props => props.theme.colors.black};
+  overflow: hidden;
+  position: relative;
   width: 100%;
-  min-height: 100%;
+
+  @media ${media.gtw(700)} {
+    width: 100%;
+    height: 100%;
+    min-height: 90rem;
+    max-height: 60vw;
+
+    ${props => {
+      switch (props.contentAlignment) {
+        case 'left': return css`
+          ${container.fvcl}
+          `
+        case 'right': return css`
+          ${container.fvcr}
+        `
+        default: return css`
+          ${container.fvbc}
+        `
+      }
+    }}
+  }
 `
