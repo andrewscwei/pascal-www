@@ -127,6 +127,7 @@ const StyledLogo = styled.div`
 
 const StyledRoot = styled.footer`
   ${container.fvtl}
+  margin-top: 5rem;
   padding: 2rem 5%;
   width: 100%;
 `

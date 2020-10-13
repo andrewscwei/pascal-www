@@ -3,7 +3,7 @@ import React, { Fragment, PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { RouteComponentProps } from 'react-router'
 import { Action, bindActionCreators, Dispatch } from 'redux'
-import Background from '../components/Background'
+import Extensions from '../components/Extensions'
 import Feature from '../components/Feature'
 import Hero from '../components/Hero'
 import { AppState } from '../store'
@@ -60,7 +60,7 @@ class Home extends PureComponent<Props, State> implements UpdateDelegator {
         <Feature slug='scientific' numFeatures={3} contentAlignment='left'/>
         <Feature slug='graphing' numFeatures={2} contentAlignment='center'/>
         <Feature slug='programmer' numFeatures={3} contentAlignment='right'/>
-        <Feature slug='extensions' numFeatures={2} contentAlignment='center'/>
+        <Extensions/>
       </Fragment>
     )
   }

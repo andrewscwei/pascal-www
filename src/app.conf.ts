@@ -25,6 +25,8 @@ export default {
 
   appStoreUrl: 'https://apps.apple.com/app/id828838134',
 
+  wideLayoutMinWidth: 700,
+
   // HTML metadata.
   meta: {
     // Title of the app.

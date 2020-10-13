@@ -1,4 +1,4 @@
-import { media } from 'promptu'
+import * as promptu from 'promptu'
 import { css } from 'styled-components'
 
 export const colors = {
@@ -6,8 +6,14 @@ export const colors = {
   purple: '#7d24e2',
   blue: '#00a5e3',
   green: '#7d24e2',
+  red: '#ea5252',
   white: '#fff',
-  black: '#111',
+  black: '#000',
+  bluishGrey: '#191b21',
+}
+
+export const media = {
+  wide: promptu.media.gtw(__APP_CONFIG__.wideLayoutMinWidth),
 }
 
 export const fonts = {
@@ -20,7 +26,7 @@ export const fonts = {
     line-height: 140%;
     text-transform: uppercase;
 
-    @media ${media.gtmobile} {
+    @media ${media.wide} {
       font-size: 3rem;
     }
   `,
@@ -59,7 +65,7 @@ export const fonts = {
       font-style: italic;
     }
 
-    @media ${media.gtmobile} {
+    @media ${media.wide} {
       font-size: 4rem;
     }
   `,
@@ -70,6 +76,10 @@ export const fonts = {
     line-height: 120%;
     letter-spacing: .2rem;
     text-transform: uppercase;
+
+    @media ${media.wide} {
+      font-size: 3.4rem;
+    }
   `,
   h3: css`
     font-family: ProximaNova, sans-serif;

@@ -39,7 +39,6 @@ class Background extends PureComponent<Props, State> {
         {slug === 'scientific' && <StyledScientific/>}
         {slug === 'graphing' && <StyledGraphing/>}
         {slug === 'programmer' && <StyledProgrammer/>}
-        {slug === 'extensions' && <StyledExtensions/>}
       </StyledRoot>
     )
   }
@@ -67,11 +66,6 @@ const StyledGraphing = styled.figure`
 const StyledProgrammer = styled.figure`
   background-image: url(${$$Programmer});
   background-position: bottom left;
-`;
-
-const StyledExtensions = styled.figure`
-  background-image: url(${$$Extensions});
-  background-position: top center;
 `;
 
 const StyledRoot = styled.div`
