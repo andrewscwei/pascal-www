@@ -8,7 +8,7 @@ import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
 
 interface StateProps {
-  i18n: I18nState
+  i18n: I18nState;
 }
 
 interface DispatchProps {

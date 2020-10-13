@@ -16,8 +16,8 @@ function AppStoreButton({ className }: Props): ReactElement {
 export default AppStoreButton
 
 const StyledRoot = styled.a`
-  height: 6rem
-  width: auto
+  height: 6rem;
+  width: auto;
 
   svg * {
     ${animations.transition('fill', 50)}
@@ -25,7 +25,7 @@ const StyledRoot = styled.a`
 
   ${selectors.hwot} {
     svg * {
-      fill: ${props => props.theme.colors.purple}
+      fill: ${props => props.theme.colors.purple};
     }
   }
 `

@@ -81,8 +81,8 @@ const StyledTitle = styled.div<{
     }
   }}
 
-  color: ${props => props.theme.colors.white}
-  margin: 10rem 5%
+  color: ${props => props.theme.colors.white};
+  margin: 10rem 5%;
 
   h2 {
     ${props => props.theme.fonts.h2}
@@ -95,9 +95,9 @@ const StyledTitle = styled.div<{
 
 const StyledCopy = styled.div`
   ${container.fvtl}
-  color: ${props => props.theme.colors.white}
-  max-width: 100%
-  width: 100%
+  color: ${props => props.theme.colors.white};
+  max-width: 100%;
+  width: 100%;
 
   h3 {
     ${props => props.theme.fonts.h3}
@@ -109,7 +109,7 @@ const StyledCopy = styled.div`
   }
 
   @media ${media.gtmobile} {
-    max-width: 28rem
+    max-width: 28rem;
   }
 `
 
@@ -117,30 +117,30 @@ const StyledContent = styled.div<{
   contentAlignment: ContentAlignment
 }>`
   ${container.fvtc}
-  padding: 5rem 5%
-  width: 100%
+  padding: 5rem 5%;
+  width: 100%;
 
   ${selectors.eblc} {
-    margin: 0 0 3rem 0
+    margin: 0 0 3rem 0;
   }
 
   @media ${media.gtmobile} {
     ${props => {
-    switch (props.contentAlignment) {
-    case 'left': return css`
-        ${container.fhtl}
-      `
-    case 'right': return css`
-        ${container.fhtr}
-      `
-    default: return css`
-        ${container.fhtc}
-      `
-    }
-  }}
+      switch (props.contentAlignment) {
+        case 'left': return css`
+          ${container.fhtl}
+        `
+        case 'right': return css`
+          ${container.fhtr}
+        `
+        default: return css`
+          ${container.fhtc}
+        `
+      }
+    }}
 
     ${selectors.eblc} {
-      margin: 0 5rem 0 0
+      margin: 0 5rem 0 0;
     }
   }
 `
@@ -149,7 +149,7 @@ const StyledRoot = styled.div<{
   contentAlignment: ContentAlignment
 }>`
   ${container.fvsl}
-  background: ${props => props.theme.colors.black}
-  width: 100%
-  min-height: 100%
+  background: ${props => props.theme.colors.black};
+  width: 100%;
+  min-height: 100%;
 `
