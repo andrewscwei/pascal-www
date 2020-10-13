@@ -3,7 +3,6 @@ import { animations, container, media, selectors } from 'promptu'
 import React, { PropsWithChildren, ReactElement } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { Action, bindActionCreators, Dispatch } from 'redux'
 import styled from 'styled-components'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
@@ -15,13 +14,7 @@ interface StateProps {
   i18n: I18nState
 }
 
-interface DispatchProps {}
-
-type OwnProps = PropsWithChildren<{
-
-}>
-
-interface Props extends StateProps, DispatchProps, OwnProps {}
+interface Props extends StateProps, PropsWithChildren<{}> {}
 
 function Footer({ i18n }: Props): ReactElement {
   const { ltxt, locale } = i18n
@@ -30,10 +23,10 @@ function Footer({ i18n }: Props): ReactElement {
     <StyledRoot>
       <StyledContent>
         <StyledLogo>
-          <div>
+          <span>
             <Monogram/>
             <h2>{ltxt('app-name')}</h2>
-          </div>
+          </span>
           <h3>{ltxt('app-tagline')}</h3>
         </StyledLogo>
         <StyledAppStoreButton/>
@@ -53,36 +46,26 @@ export default connect(
   (state: AppState): StateProps => ({
     i18n: state.i18n,
   }),
-  (dispatch: Dispatch<Action>): DispatchProps => bindActionCreators({
-  }, dispatch),
 )(Footer)
 
 const StyledNavigation = styled.div`
   ${container.fhcs}
+  ${selectors.eblc} { margin-right: 1rem; }
   width: 100%;
   margin: 4rem 0 0;
 
-  ${selectors.eblc} {
-    margin-right: 1rem;
-  }
-
-  > span {
+  > span, a {
+    ${animations.transition(['opacity', 'color'], 100)}
     ${props => props.theme.fonts.f1}
-    color: ${props => props.theme.colors.white};
+    color: ${props => props.theme.colors.darkGrey};
   }
 
   > nav {
-    ${selectors.eblc} {
-      margin-right: 1rem;
-    }
+    ${selectors.eblc} { margin-right: 1rem; }
 
     > a {
-      ${props => props.theme.fonts.f1}
-      ${animations.transition(['opacity', 'color'], 100)}
-      color: ${props => props.theme.colors.white};
-
       ${selectors.hwot} {
-        opacity: .8;
+        color: ${props => props.theme.colors.white};
       }
     }
   }
@@ -100,13 +83,10 @@ const StyledAppStoreButton = styled(AppStoreButton)`
 const StyledLogo = styled.div`
   ${container.fvtl}
 
-  > div {
+  span {
     ${container.fhcl}
+    ${selectors.eblc} { margin-right: .8rem; }
     height: 3rem;
-
-    ${selectors.eblc} {
-      margin-right: .8rem;
-    }
   }
 
   h2 {
@@ -118,16 +98,13 @@ const StyledLogo = styled.div`
     ${props => props.theme.fonts.t3}
     margin-left: 3.8rem;
     color: ${props => props.theme.colors.white};
-
-    @media ${media.lttablet} {
-      display: none;
-    }
+    @media ${media.lttablet} { display: none; }
   }
 `
 
 const StyledRoot = styled.footer`
   ${container.fvtl}
-  margin-top: 5rem;
-  padding: 2rem 5%;
+  margin: 5rem 0 0;
+  padding: 4rem 5%;
   width: 100%;
 `

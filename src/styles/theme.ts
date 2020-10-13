@@ -9,7 +9,7 @@ export const colors = {
   red: '#ea5252',
   white: '#fff',
   black: '#000',
-  bluishGrey: '#191b21',
+  darkGrey: '#666',
 }
 
 export const media = {
@@ -146,7 +146,7 @@ export const fonts = {
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
-    letter-spacing: normal;
+    letter-spacing: .04rem;
     line-height: 120%;
     text-transform: none;
   `,
