@@ -2,6 +2,8 @@
  * @file Client app root.
  */
 
+import { scrollToTop } from 'dirty-dom'
+import _ from 'lodash'
 import React, { Fragment, PureComponent } from 'react'
 import { hot } from 'react-hot-loader/root'
 import { connect } from 'react-redux'
@@ -16,7 +18,7 @@ import { changeLocale, I18nState } from '../store/i18n'
 import globalStyles from '../styles/global'
 import * as theme from '../styles/theme'
 import debug from '../utils/debug'
-import { getLocaleFromPath } from '../utils/i18n'
+import { getLocaleFromPath, getLocalizedPath } from '../utils/i18n'
 
 interface StateProps {
   i18n: I18nState
@@ -62,12 +64,23 @@ class App extends PureComponent<Props, State> {
       <ThemeProvider theme={theme}>
         <Fragment>
           <GlobalStyles/>
-          <Header isCollapsed={false}/>
+          <Header onActivate={() => this.onActivateHeader()}/>
           <Switch location={route.location}>{this.generateRoutes()}</Switch>
           <Footer/>
         </Fragment>
       </ThemeProvider>
     )
+  }
+
+  private onActivateHeader() {
+    const pathName = _.last(this.props.route.location.pathname.split('/'))
+
+    if (_.isEmpty(pathName)) {
+      scrollToTop()
+    }
+    else {
+      this.props.route.history.push(getLocalizedPath('/', this.props.i18n.locale))
+    }
   }
 
   private syncLocaleWithUrl(url: string) {
