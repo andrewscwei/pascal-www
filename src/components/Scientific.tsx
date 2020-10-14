@@ -103,13 +103,13 @@ const StyledBackground = styled.div<{ frame: number }>`
 
   > figure {
     ${align.tl}
+    ${animations.transition(['opacity', 'transform'], 600, 'ease-in-out')}
     width: 100%;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto 99%;
     background-position: right -30% bottom -200%;
-    ${animations.transition(['opacity', 'transform'], 600, 'ease-in-out')}
   }
 
   > figure:nth-child(1) {

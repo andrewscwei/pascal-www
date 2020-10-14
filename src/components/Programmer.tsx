@@ -1,4 +1,4 @@
-import { align, container, selectors } from 'promptu'
+import { align, animations, container, selectors } from 'promptu'
 import React, { forwardRef, PureComponent, Ref } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
@@ -63,12 +63,24 @@ const StyledContent = styled.div<{ frame: number }>`
 
   > span, > article {
     ${container.fvtl}
+    ${animations.transition(['opacity', 'transform'], 200)}
+    opacity: ${props => props.frame > 0 ? 1 : 0};
+    transform: ${props => `translate3d(${props.frame > 0 ? 0 : 20}px, ${props.frame > 0 ? 0 : -20}px, 0)`};
     color: ${props => props.theme.colors.white};
     max-width: 50rem;
     width: 90%;
+
+    > span { opacity: .8; }
   }
 
   > span { margin: 0 0 5rem 0; }
+
+  > * {
+    &:nth-child(1) { transition-delay: ${props => props.frame > 0 ? `${50*0}ms` : '0ms'}; }
+    &:nth-child(2) { transition-delay: ${props => props.frame > 0 ? `${50*1}ms` : '0ms'}; }
+    &:nth-child(3) { transition-delay: ${props => props.frame > 0 ? `${50*2}ms` : '0ms'}; }
+    &:nth-child(4) { transition-delay: ${props => props.frame > 0 ? `${50*3}ms` : '0ms'}; }
+  }
 
   @media ${media.wide} {
     ${container.fvcr}
@@ -89,6 +101,7 @@ const StyledBackground = styled.div<{ frame: number }>`
 
   > figure {
     ${align.tl}
+    ${animations.transition(['opacity', 'transform'], 600, 'ease-in-out')}
     width: 100%;
     height: 100%;
     background-position: bottom center;
@@ -97,11 +110,16 @@ const StyledBackground = styled.div<{ frame: number }>`
   }
 
   > figure:nth-child(1) {
+    opacity: ${props => props.frame > 0 ? 1 : 0};
+    transform: ${props => `translate3d(${props.frame > 0 ? 0 : -60}px, ${props.frame > 0 ? 0 : 60}px, 0)`};
     background-image: url(${$$Background1});
     z-index: 1;
   }
 
   > figure:nth-child(2) {
+    transition-delay: ${props => props.frame > 0 ? '100ms' : '0ms'};
+    transform: ${props => `translate3d(${props.frame > 0 ? 0 : -60}px, ${props.frame > 0 ? 0 : 60}px, 0)`};
+    opacity: ${props => props.frame > 0 ? 1 : 0};
     background-image: url(${$$Background2});
     z-index: 0;
   }
