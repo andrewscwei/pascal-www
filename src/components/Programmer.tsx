@@ -141,6 +141,7 @@ const StyledBackground = styled.div<{ frame: number }>`
 `;
 
 const StyledRoot = styled.div`
+  overflow-x: hidden;
   overflow-y: visible;
   position: relative;
   width: 100%;
@@ -149,6 +150,7 @@ const StyledRoot = styled.div`
 
   @media ${layout.wide} {
     ${container.fvcr}
+    overflow-x: visible;
     width: 100%;
     height: 66vw;
     max-height: 100rem;
