@@ -84,7 +84,7 @@ const StyledBackground = styled.div<{ frame: number }>`
   figure:nth-child(1) {
     opacity: ${props => props.frame > 0 ? 1 : 0};
     transition-delay: ${props => props.frame > 0 ? '500ms' : '0ms'};
-    transform: ${props => `translate3d(${props.frame > 0 ? 0 : 140}px, ${props.frame > 0 ? 0 : 120}px, 0)`};
+    transform: ${props => `translate3d(${props.frame > 0 ? 0 : 120}px, ${props.frame > 0 ? 0 : 100}px, 0)`};
     background-image: url(${$$Background1});
     z-index: 1;
   }
