@@ -25,8 +25,10 @@ class Programmer extends PureComponent<Props> {
     return (
       <StyledRoot ref={forwardedRef}>
         <StyledBackground frame={frame}>
-          <figure/>
-          <figure/>
+          <div>
+            <figure/>
+            <figure/>
+          </div>
         </StyledBackground>
         <StyledContent frame={frame}>
           <span>
@@ -99,26 +101,33 @@ const StyledContent = styled.div<{ frame: number }>`
 const StyledBackground = styled.div<{ frame: number }>`
   height: 170vw;
   position: relative;
-  width: 200%;
+  width: 100%;
 
-  > figure {
+  > div {
+    ${align.tl}
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  figure {
     ${align.tl}
     ${animations.transition(['opacity', 'transform'], 600, 'ease-in-out')}
-    width: 100%;
+    width: 200%;
     height: 100%;
     background-position: 500% 50%;
     background-repeat: no-repeat;
     background-size: cover;
   }
 
-  > figure:nth-child(1) {
+  figure:nth-child(1) {
     opacity: ${props => props.frame > 0 ? 1 : 0};
     transform: ${props => `translate3d(${props.frame > 0 ? 0 : -60}px, ${props.frame > 0 ? 0 : 60}px, 0)`};
     background-image: url(${$$Background1});
     z-index: 1;
   }
 
-  > figure:nth-child(2) {
+  figure:nth-child(2) {
     transition-delay: ${props => props.frame > 0 ? '100ms' : '0ms'};
     transform: ${props => `translate3d(${props.frame > 0 ? 0 : -60}px, ${props.frame > 0 ? 0 : 60}px, 0)`};
     opacity: ${props => props.frame > 0 ? 1 : 0};
@@ -133,7 +142,8 @@ const StyledBackground = styled.div<{ frame: number }>`
     height: 140%;
     left: -24%;
 
-    > figure {
+    figure {
+      width: 100%;
       background-size: contain;
       background-position: bottom center;
     }
@@ -141,8 +151,7 @@ const StyledBackground = styled.div<{ frame: number }>`
 `;
 
 const StyledRoot = styled.div`
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: visibles;
   position: relative;
   width: 100%;
 
@@ -150,7 +159,6 @@ const StyledRoot = styled.div`
 
   @media ${layout.wide} {
     ${container.fvcr}
-    overflow-x: visible;
     width: 100%;
     height: 66vw;
     max-height: 100rem;
