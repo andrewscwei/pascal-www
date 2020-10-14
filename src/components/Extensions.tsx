@@ -25,12 +25,12 @@ export interface State {}
 
 class Extensions extends PureComponent<Props, State> {
   render() {
-    const { i18n, forwardedRef } = this.props
+    const { i18n, forwardedRef, frame } = this.props
     const { ltxt, locale } = i18n
 
     return (
       <StyledRoot ref={forwardedRef}>
-        <StyledBackground>
+        <StyledBackground frame={frame}>
           <figure/>
           <figure/>
           <span>
@@ -38,7 +38,7 @@ class Extensions extends PureComponent<Props, State> {
             <h4 dangerouslySetInnerHTML={{ __html: ltxt('extensions-subtitle') }}/>
           </span>
         </StyledBackground>
-        <StyledContent>
+        <StyledContent frame={frame}>
           {[...Array(2)].map((v, i) => (
             <article key={`copy-${i}`}>
               <h3 dangerouslySetInnerHTML={{ __html: ltxt(`extensions-feature-${i+1}-title`) }}/>
@@ -60,7 +60,7 @@ export default connect(
   { forwardRef: true },
 )(forwardRef<HTMLDivElement, Props>((props, ref) => <Extensions {...props} forwardedRef={ref}/>))
 
-const StyledContent = styled.div`
+const StyledContent = styled.div<{ frame: number }>`
   ${container.fvtl}
   ${selectors.eblc} { margin: 0 0 3rem 0; }
   background: ${props => props.theme.colors.black};
@@ -89,7 +89,7 @@ const StyledContent = styled.div`
   }
 `
 
-const StyledBackground = styled.div`
+const StyledBackground = styled.div<{ frame: number }>`
   ${container.fvcc}
   height: 60vw;
   position: relative;

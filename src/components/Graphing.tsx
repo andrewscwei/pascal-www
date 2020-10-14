@@ -2,8 +2,8 @@ import { align, container, selectors } from 'promptu'
 import React, { forwardRef, PureComponent, Ref } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import $$Background1 from '../assets/graphing-workspace.png'
 import $$Background2 from '../assets/graphing-viewport.png'
+import $$Background1 from '../assets/graphing-workspace.png'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
 import { media } from '../styles/theme'
@@ -24,11 +24,11 @@ class Graphing extends PureComponent<Props> {
 
     return (
       <StyledRoot ref={forwardedRef}>
-        <StyledBackground>
+        <StyledBackground frame={frame}>
           <figure/>
           <figure/>
         </StyledBackground>
-        <StyledContent>
+        <StyledContent frame={frame}>
           <span>
             <h2 dangerouslySetInnerHTML={{ __html: ltxt('graphing-title') }}/>
             <h4 dangerouslySetInnerHTML={{ __html: ltxt('graphing-subtitle') }}/>
@@ -54,7 +54,7 @@ export default connect(
   { forwardRef: true },
 )(forwardRef<HTMLDivElement, Props>((props, ref) => <Graphing {...props} forwardedRef={ref}/>))
 
-const StyledContent = styled.div`
+const StyledContent = styled.div<{ frame: number }>`
   ${container.fvtl}
   ${selectors.eblc} { margin: 0 0 3rem 0; }
   padding: 3rem 5% 5rem;
@@ -88,13 +88,13 @@ const StyledContent = styled.div`
   }
 `
 
-const StyledBackground = styled.div`
+const StyledBackground = styled.div<{ frame: number }>`
   height: 70vw;
-  position: realtive;
+  position: relative;
   width: 100%;
 
   > figure {
-    ${align.tl}
+    ${align.cc}
     background-image: url(${$$Background1});
     background-position: center;
     background-repeat: no-repeat;

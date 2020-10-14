@@ -77,8 +77,6 @@ class Home extends PureComponent<Props, State> implements UpdateDelegator {
   render() {
     const { ltxt } = this.props.i18n
 
-    console.log(this.state)
-
     return (
       <Fragment>
         <Hero ref={this.nodeRefs.hero} frame={this.state.hero ?? this.computeExposureForElement(this.nodeRefs.hero.current)}/>
@@ -95,7 +93,7 @@ class Home extends PureComponent<Props, State> implements UpdateDelegator {
 
     const intersection = Rect.intersecting(element)
     const size = Rect.from(element)
-    const min = 0
+    const min = 0.3
     const max = 0.7
 
     if (!intersection || !size) return 0

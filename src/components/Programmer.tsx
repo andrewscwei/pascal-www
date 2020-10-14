@@ -24,11 +24,11 @@ class Programmer extends PureComponent<Props> {
 
     return (
       <StyledRoot ref={forwardedRef}>
-        <StyledBackground>
+        <StyledBackground frame={frame}>
           <figure/>
           <figure/>
         </StyledBackground>
-        <StyledContent>
+        <StyledContent frame={frame}>
           <span>
             <h2 dangerouslySetInnerHTML={{ __html: ltxt('programmer-title') }}/>
             <h4 dangerouslySetInnerHTML={{ __html: ltxt('programmer-subtitle') }}/>
@@ -54,7 +54,7 @@ export default connect(
   { forwardRef: true },
 )(forwardRef<HTMLDivElement, Props>((props, ref) => <Programmer {...props} forwardedRef={ref}/>))
 
-const StyledContent = styled.div`
+const StyledContent = styled.div<{ frame: number }>`
   ${container.fvtl}
   ${selectors.eblc} { margin: 0 0 3rem 0; }
   padding: 0 5% 5rem;
@@ -82,7 +82,7 @@ const StyledContent = styled.div`
   }
 `
 
-const StyledBackground = styled.div`
+const StyledBackground = styled.div<{ frame: number }>`
   height: 120vw;
   position: relative;
   width: 100%;

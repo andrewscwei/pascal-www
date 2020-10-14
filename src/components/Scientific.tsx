@@ -1,9 +1,9 @@
-import { align, container, selectors } from 'promptu'
+import { align, animations, container, selectors } from 'promptu'
 import React, { forwardRef, PureComponent, Ref } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import $$Background1 from '../assets/scientific-basic-mode.png'
 import $$Background2 from '../assets/scientific-advanced-mode.png'
+import $$Background1 from '../assets/scientific-basic-mode.png'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
 import { media } from '../styles/theme'
@@ -24,11 +24,11 @@ class Scientific extends PureComponent<Props> {
 
     return (
       <StyledRoot ref={forwardedRef}>
-        <StyledBackground>
+        <StyledBackground frame={frame}>
           <figure/>
           <figure/>
         </StyledBackground>
-        <StyledContent>
+        <StyledContent frame={frame}>
           <span>
             <h2 dangerouslySetInnerHTML={{ __html: ltxt('scientific-title') }}/>
             <h4 dangerouslySetInnerHTML={{ __html: ltxt('scientific-subtitle') }}/>
@@ -54,21 +54,37 @@ export default connect(
   { forwardRef: true },
 )(forwardRef<HTMLDivElement, Props>((props, ref) => <Scientific {...props} forwardedRef={ref}/>))
 
-const StyledContent = styled.div`
+const StyledContent = styled.div<{ frame: number }>`
   ${container.fvtl}
   ${selectors.eblc} { margin: 0 0 3rem 0; }
   padding: 3rem 5% 5rem;
   position: relative;
   width: 100%;
 
-  > span, article {
+  > span, > article {
     ${container.fvtl}
+    ${animations.transition(['opacity', 'transform'], 200)}
     color: ${props => props.theme.colors.white};
+    opacity: ${props => props.frame > 0 ? 1 : 0};
+    transform: ${props => `translate3d(${props.frame > 0 ? 0 : -20}px, ${props.frame > 0 ? 0 : -20}px, 0)`};
     max-width: 50rem;
     width: 90%;
+
+    > span {
+      opacity: .8;
+    }
   }
 
-  > span { margin: 0 0 5rem 0; }
+  > span {
+    margin: 0 0 5rem 0;
+  }
+
+  > * {
+    &:nth-child(1) { transition-delay: ${props => props.frame > 0 ? `${50*0}ms` : '0ms'}; }
+    &:nth-child(2) { transition-delay: ${props => props.frame > 0 ? `${50*1}ms` : '0ms'}; }
+    &:nth-child(3) { transition-delay: ${props => props.frame > 0 ? `${50*2}ms` : '0ms'}; }
+    &:nth-child(4) { transition-delay: ${props => props.frame > 0 ? `${50*3}ms` : '0ms'}; }
+  }
 
   @media ${media.wide} {
     ${container.fvcl}
@@ -82,7 +98,7 @@ const StyledContent = styled.div`
   }
 `
 
-const StyledBackground = styled.div`
+const StyledBackground = styled.div<{ frame: number }>`
   height: 100vw;
   position: relative;
   width: 100%;
@@ -95,14 +111,20 @@ const StyledBackground = styled.div`
     background-repeat: no-repeat;
     background-size: auto 99%;
     background-position: right -30% bottom -200%;
+    ${animations.transition(['opacity', 'transform'], 600, 'ease-in-out')}
   }
 
   > figure:nth-child(1) {
+    opacity: ${props => props.frame > 0 ? 1 : 0};
+    transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : 60}px, 0)`};
     background-image: url(${$$Background1});
     z-index: 1;
   }
 
   > figure:nth-child(2) {
+    transition-delay: ${props => props.frame > 0 ? '100ms' : '0ms'};
+    transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : 60}px, 0)`};
+    opacity: ${props => props.frame > 0 ? 1 : 0};
     background-image: url(${$$Background2});
     z-index: 0;
   }
