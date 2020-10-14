@@ -70,9 +70,7 @@ const StyledContent = styled.div<{ frame: number }>`
     max-width: 50rem;
     width: 90%;
 
-    > span {
-      opacity: .8;
-    }
+    > span { opacity: .8; }
   }
 
   > span {
