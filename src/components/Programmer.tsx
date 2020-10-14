@@ -2,7 +2,8 @@ import { align, container, selectors } from 'promptu'
 import React, { forwardRef, PureComponent, Ref } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import $$Background from '../assets/programmer@3x.png'
+import $$Background1 from '../assets/programmer-normal.png'
+import $$Background2 from '../assets/programmer-rpn.png'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
 import { media } from '../styles/theme'
@@ -24,6 +25,8 @@ class Programmer extends PureComponent<Props> {
     return (
       <StyledRoot ref={forwardedRef}>
         <StyledBackground>
+          <figure/>
+          <figure/>
         </StyledBackground>
         <StyledContent>
           <span>
@@ -80,20 +83,38 @@ const StyledContent = styled.div`
 `
 
 const StyledBackground = styled.div`
-  background-image: url(${$$Background});
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 120vw;
   position: relative;
   width: 100%;
 
+  > figure {
+    ${align.tl}
+    width: 100%;
+    height: 100%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  > figure:nth-child(1) {
+    background-image: url(${$$Background1});
+    z-index: 1;
+  }
+
+  > figure:nth-child(2) {
+    background-image: url(${$$Background2});
+    z-index: 0;
+  }
+
   @media ${media.wide} {
     ${align.cl}
-    background-size: contain;
     bottom: -30%;
     height: 140%;
     left: -24%;
+
+    > figure {
+      background-size: contain;
+    }
   }
 `;
 

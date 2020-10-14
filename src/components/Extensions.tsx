@@ -1,8 +1,9 @@
-import { container, selectors } from 'promptu'
+import { align, container, selectors } from 'promptu'
 import React, { forwardRef, PureComponent, Ref } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import $$Background from '../assets/extensions@3x.png'
+import $$Background1 from '../assets/extensions-phone.png'
+import $$Background2 from '../assets/extensions-watch.png'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
 import { media } from '../styles/theme'
@@ -30,6 +31,8 @@ class Extensions extends PureComponent<Props, State> {
     return (
       <StyledRoot ref={forwardedRef}>
         <StyledBackground>
+          <figure/>
+          <figure/>
           <span>
             <h2 dangerouslySetInnerHTML={{ __html: ltxt('extensions-title') }}/>
             <h4 dangerouslySetInnerHTML={{ __html: ltxt('extensions-subtitle') }}/>
@@ -88,18 +91,34 @@ const StyledContent = styled.div`
 
 const StyledBackground = styled.div`
   ${container.fvcc}
-  background-color: ${props => props.theme.colors.red};
-  background-image: url(${$$Background});
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  background-size: contain;
   height: 60vw;
   position: relative;
   width: 100%;
+  background-color: ${props => props.theme.colors.red};
+
+  > figure {
+    ${align.tl}
+    width: 100%;
+    height: 100%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  > figure:nth-child(1) {
+    background-image: url(${$$Background1});
+    z-index: 1;
+  }
+
+  > figure:nth-child(2) {
+    background-image: url(${$$Background2});
+    z-index: 0;
+  }
 
   > span {
     ${container.fvtc}
     color: ${props => props.theme.colors.white};
+    z-index: 2;
   }
 `;
 

@@ -2,7 +2,8 @@ import { align, container, selectors } from 'promptu'
 import React, { forwardRef, PureComponent, Ref } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import $$Background from '../assets/scientific@3x.png'
+import $$Background1 from '../assets/scientific-basic-mode.png'
+import $$Background2 from '../assets/scientific-advanced-mode.png'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
 import { media } from '../styles/theme'
@@ -24,6 +25,8 @@ class Scientific extends PureComponent<Props> {
     return (
       <StyledRoot ref={forwardedRef}>
         <StyledBackground>
+          <figure/>
+          <figure/>
         </StyledBackground>
         <StyledContent>
           <span>
@@ -80,17 +83,32 @@ const StyledContent = styled.div`
 `
 
 const StyledBackground = styled.div`
-  background-image: url(${$$Background});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto 99%;
   height: 100vw;
   position: relative;
   width: 100%;
 
+  > figure {
+    ${align.tl}
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 99%;
+    background-position: right -30% bottom -200%;
+  }
+
+  > figure:nth-child(1) {
+    background-image: url(${$$Background1});
+    z-index: 1;
+  }
+
+  > figure:nth-child(2) {
+    background-image: url(${$$Background2});
+    z-index: 0;
+  }
+
   @media ${media.wide} {
     ${align.br}
-    background-position: right -30% bottom -200%;
     height: 110%;
   }
 `;
