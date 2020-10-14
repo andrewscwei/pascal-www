@@ -61,7 +61,7 @@ export const fonts = {
     em, i { font-style: italic; }
 
     @media ${promptu.media.gtmobile} {
-      font-size: 2.4;
+      font-size: 2.4rem;
     }
 
     @media ${promptu.media.gttablet} {

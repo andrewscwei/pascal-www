@@ -72,6 +72,7 @@ const StyledRoot = styled.div`
   padding: 5% 5%;
   position: relative;
   width: 100%;
+  max-height: 170vw;
 
   @media ${layout.wide} {
     max-height: 66vw;
