@@ -1,7 +1,7 @@
 import { align, container, selectors } from 'promptu'
 import React, { forwardRef, PureComponent, Ref } from 'react'
 import { connect } from 'react-redux'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import $$Background from '../assets/programmer@3x.png'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
@@ -27,13 +27,13 @@ class Programmer extends PureComponent<Props> {
         </StyledBackground>
         <StyledContent>
           <span>
-            <h2 dangerouslySetInnerHTML={{ __html: ltxt('scientific-title') }}/>
-            <h4 dangerouslySetInnerHTML={{ __html: ltxt('scientific-subtitle') }}/>
+            <h2 dangerouslySetInnerHTML={{ __html: ltxt('programmer-title') }}/>
+            <h4 dangerouslySetInnerHTML={{ __html: ltxt('programmer-subtitle') }}/>
           </span>
           {[...Array(3)].map((v, i) => (
             <article key={`copy-${i}`}>
-              <h3 dangerouslySetInnerHTML={{ __html: ltxt(`scientific-feature-${i+1}-title`) }}/>
-              <span dangerouslySetInnerHTML={{ __html: ltxt(`scientific-feature-${i+1}-description`) }}/>
+              <h3 dangerouslySetInnerHTML={{ __html: ltxt(`programmer-feature-${i+1}-title`) }}/>
+              <span dangerouslySetInnerHTML={{ __html: ltxt(`programmer-feature-${i+1}-description`) }}/>
             </article>
           ))}
         </StyledContent>
@@ -54,43 +54,28 @@ export default connect(
 const StyledContent = styled.div`
   ${container.fvtl}
   ${selectors.eblc} { margin: 0 0 3rem 0; }
-  padding: 5rem 5%;
+  padding: 0 5% 5rem;
   position: relative;
   width: 100%;
 
-  > span {
+  > span, > article {
     ${container.fvtl}
     color: ${props => props.theme.colors.white};
-    margin: 0 0 5rem 0;
+    max-width: 50rem;
+    width: 90%;
   }
 
-  > article {
-    ${container.fvtl}
-    color: ${props => props.theme.colors.white};
-    max-width: 26rem;
-    width: 100%;
-
-    h3 {
-      + * { margin-top: 1.2rem }
-    }
-
-    span {
-      ${props => props.theme.fonts.p1}
-    }
-  }
+  > span { margin: 0 0 5rem 0; }
 
   @media ${media.wide} {
     ${container.fvcr}
-    ${selectors.eblc} { margin: 0 0 5rem 0; }
-    padding: 5rem 8%;
+    ${selectors.eblc} { margin: 0 0 4% 0; }
+    padding: 0 8%;
 
     > span, article {
-      width: 30%;
+      width: 100%;
       max-width: 36rem;
     }
-
-    > span { ${container.fvtl} }
-    > article { ${container.fvtl} }
   }
 `
 
@@ -98,27 +83,31 @@ const StyledBackground = styled.div`
   background-image: url(${$$Background});
   background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   height: 120vw;
-  width: 100%;
-
-  @media ${media.wide} {
-    ${align.bl}
-    left: -15%;
-    height: 80%;
-  }
-`;
-
-const StyledRoot = styled.div`
-  overflow: hidden;
   position: relative;
   width: 100%;
 
   @media ${media.wide} {
+    ${align.cl}
+    background-size: contain;
+    bottom: -30%;
+    height: 140%;
+    left: -24%;
+  }
+`;
+
+const StyledRoot = styled.div`
+  overflow: visible;
+  position: relative;
+  width: 100%;
+
+  > * { flex: 0 0 auto; }
+
+  @media ${media.wide} {
     ${container.fvcr}
     width: 100%;
-    height: 100%;
-    min-height: 90rem;
-    max-height: 60vw;
+    height: 66vw;
+    max-height: 100rem;
   }
 `

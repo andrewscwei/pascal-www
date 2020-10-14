@@ -70,14 +70,6 @@ const StyledContent = styled.div`
     color: ${props => props.theme.colors.white};
     max-width: 26rem;
     width: 100%;
-
-    h3 {
-      + * { margin-top: 1.2rem }
-    }
-
-    span {
-      ${props => props.theme.fonts.p1}
-    }
   }
 
   @media ${media.wide} {

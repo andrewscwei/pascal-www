@@ -89,6 +89,8 @@ export const fonts = {
     letter-spacing: .2rem;
     line-height: 120%;
     text-transform: uppercase;
+
+    + * { margin-top: 1.2rem }
   `,
   h4: css`
     font-family: ProximaNova, sans-serif;

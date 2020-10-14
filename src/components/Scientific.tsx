@@ -54,71 +54,60 @@ export default connect(
 const StyledContent = styled.div`
   ${container.fvtl}
   ${selectors.eblc} { margin: 0 0 3rem 0; }
-  padding: 5rem 5%;
+  padding: 5rem 5% 5rem;
   position: relative;
   width: 100%;
 
-  > span {
+  > span, article {
     ${container.fvtl}
     color: ${props => props.theme.colors.white};
-    margin: 0 0 5rem 0;
+    max-width: 50rem;
+    width: 90%;
   }
 
-  > article {
-    ${container.fvtl}
-    color: ${props => props.theme.colors.white};
-    max-width: 26rem;
-    width: 100%;
-
-    h3 {
-      + * { margin-top: 1.2rem }
-    }
-
-    span {
-      ${props => props.theme.fonts.p1}
-    }
-  }
+  > span { margin: 0 0 5rem 0; }
 
   @media ${media.wide} {
     ${container.fvcl}
-    ${selectors.eblc} { margin: 0 0 5rem 0; }
-    padding: 5rem 8%;
+    ${selectors.eblc} { margin: 0 0 4% 0; }
+    padding: 0 8%;
 
     > span, article {
-      width: 30%;
+      width: 100%;
       max-width: 36rem;
     }
-
-    > span { ${container.fvtl} }
-    > article { ${container.fvtl} }
   }
 `
 
 const StyledBackground = styled.div`
   background-image: url(${$$Background});
-  background-position: bottom center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 120vw;
+  height: 100vw;
+  position: realtive;
   width: 100%;
 
   @media ${media.wide} {
     ${align.br}
-    right: -15%;
-    height: 80%;
+    background-position: bottom center;
+    bottom: -10%;
+    height: 110%;
+    right: -20%;
   }
 `;
 
 const StyledRoot = styled.div`
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   width: 100%;
+
+  > * { flex: 0 0 auto; }
 
   @media ${media.wide} {
     ${container.fvcl}
     width: 100%;
-    height: 100%;
-    min-height: 90rem;
-    max-height: 60vw;
+    height: 60vw;
+    max-height: 100rem;
   }
 `

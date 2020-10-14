@@ -27,13 +27,13 @@ class Graphing extends PureComponent<Props> {
         </StyledBackground>
         <StyledContent>
           <span>
-            <h2 dangerouslySetInnerHTML={{ __html: ltxt('scientific-title') }}/>
-            <h4 dangerouslySetInnerHTML={{ __html: ltxt('scientific-subtitle') }}/>
+            <h2 dangerouslySetInnerHTML={{ __html: ltxt('graphing-title') }}/>
+            <h4 dangerouslySetInnerHTML={{ __html: ltxt('graphing-subtitle') }}/>
           </span>
           {[...Array(2)].map((v, i) => (
             <article key={`copy-${i}`}>
-              <h3 dangerouslySetInnerHTML={{ __html: ltxt(`scientific-feature-${i+1}-title`) }}/>
-              <span dangerouslySetInnerHTML={{ __html: ltxt(`scientific-feature-${i+1}-description`) }}/>
+              <h3 dangerouslySetInnerHTML={{ __html: ltxt(`graphing-feature-${i+1}-title`) }}/>
+              <span dangerouslySetInnerHTML={{ __html: ltxt(`graphing-feature-${i+1}-description`) }}/>
             </article>
           ))}
         </StyledContent>
@@ -54,67 +54,64 @@ export default connect(
 const StyledContent = styled.div`
   ${container.fvtl}
   ${selectors.eblc} { margin: 0 0 3rem 0; }
-  padding: 5rem 5%;
+  padding: 0 5% 5rem;
   position: relative;
   width: 100%;
 
-  > span {
+  > span, article {
     ${container.fvtl}
     color: ${props => props.theme.colors.white};
-    margin: 0 0 5rem 0;
+    max-width: 50rem;
+    width: 90%;
   }
 
-  > article {
-    ${container.fvtl}
-    color: ${props => props.theme.colors.white};
-    max-width: 26rem;
-    width: 100%;
-
-    h3 {
-      + * { margin-top: 1.2rem }
-    }
-
-    span {
-      ${props => props.theme.fonts.p1}
-    }
-  }
+  > span { margin: 0 0 5rem 0; }
 
   @media ${media.wide} {
     ${container.fhtc}
     ${selectors.eblc} { margin: 0 7rem 0 0; }
-    padding: 5rem 8%;
+    margin-top: 66vw;
+    padding: 0 8% 5rem;
 
-    > span { ${container.fvtr} }
+    > span {
+      ${container.fvtr}
+      width: auto;
+    }
 
     > article {
       ${container.fvtl}
       width: 30%;
-      max-width: 30rem;
+      max-width: 35rem;
     }
   }
 `
 
 const StyledBackground = styled.div`
-  ${align.tc}
   background-image: url(${$$Background});
-  background-position: bottom center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 120vw;
+  height: 70vw;
+  position: realtive;
   width: 100%;
-  height: 80%;
+
+  @media ${media.wide} {
+    ${align.tc}
+    top: -15%;
+    height: 90%;
+  }
 `;
 
 const StyledRoot = styled.div`
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   width: 100%;
+
+  > * { flex: 0 0 auto; }
 
   @media ${media.wide} {
     ${container.fvbc}
     width: 100%;
-    height: 100%;
-    min-height: 90rem;
-    max-height: 60vw;
+    max-height: 100rem;
   }
 `
