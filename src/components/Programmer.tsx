@@ -60,6 +60,7 @@ const StyledContent = styled.div<{ frame: number }>`
   padding: 0 5% 5rem;
   position: relative;
   width: 100%;
+  margin-top: -20rem;
 
   > span, > article {
     ${container.fvtl}
@@ -85,6 +86,7 @@ const StyledContent = styled.div<{ frame: number }>`
   @media ${layout.wide} {
     ${container.fvcr}
     ${selectors.eblc} { margin: 0 0 4% 0; }
+    margin-top: 0;
     padding: 0 8%;
 
     > span, article {
@@ -95,16 +97,16 @@ const StyledContent = styled.div<{ frame: number }>`
 `
 
 const StyledBackground = styled.div<{ frame: number }>`
-  height: 120vw;
+  height: 170vw;
   position: relative;
-  width: 100%;
+  width: 200%;
 
   > figure {
     ${align.tl}
     ${animations.transition(['opacity', 'transform'], 600, 'ease-in-out')}
     width: 100%;
     height: 100%;
-    background-position: bottom center;
+    background-position: 500% 50%;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -127,11 +129,13 @@ const StyledBackground = styled.div<{ frame: number }>`
   @media ${layout.wide} {
     ${align.cl}
     bottom: -30%;
+    width: 100%;
     height: 140%;
     left: -24%;
 
     > figure {
       background-size: contain;
+      background-position: bottom center;
     }
   }
 `;
