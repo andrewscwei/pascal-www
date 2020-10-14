@@ -39,7 +39,7 @@ class Hero extends PureComponent<Props, State> {
             <figure/>
           </div>
         </StyledBackground>
-        <StyledContent>
+        <StyledContent frame={frame}>
           <StyledTitle dangerouslySetInnerHTML={{ __html: ltxt('app-description') }}/>
           <StyledAppStoreButton/>
         </StyledContent>
@@ -72,7 +72,7 @@ const StyledBackground = styled.div<{ frame: number }>`
 
   figure {
     ${align.tl}
-    ${animations.transition(['opacity', 'transform'], 600, 'ease-out')}
+    ${animations.transition(['opacity', 'transform'], 500, 'ease-out')}
     height: 100%;
     width: 200%;
     left: -50%;
@@ -83,23 +83,23 @@ const StyledBackground = styled.div<{ frame: number }>`
 
   figure:nth-child(1) {
     opacity: ${props => props.frame > 0 ? 1 : 0};
-    transition-delay: ${props => props.frame > 0 ? '200ms' : '0ms'};
-    transform: ${props => `translate3d(${props.frame > 0 ? 0 : 60}px, ${props.frame > 0 ? 0 : 40}px, 0)`};
+    transition-delay: ${props => props.frame > 0 ? '500ms' : '0ms'};
+    transform: ${props => `translate3d(${props.frame > 0 ? 0 : 140}px, ${props.frame > 0 ? 0 : 120}px, 0)`};
     background-image: url(${$$Background1});
     z-index: 1;
   }
 
   figure:nth-child(2) {
-    transition-delay: ${props => props.frame > 0 ? '100ms' : '0ms'};
-    transform: ${props => `translate3d(${props.frame > 0 ? 0 : 60}px, ${props.frame > 0 ? 0 : 40}px, 0)`};
+    transition-delay: ${props => props.frame > 0 ? '400ms' : '0ms'};
+    transform: ${props => `translate3d(${props.frame > 0 ? 0 : 100}px, ${props.frame > 0 ? 0 : 80}px, 0)`};
     opacity: ${props => props.frame > 0 ? 1 : 0};
     background-image: url(${$$Background2});
     z-index: 0;
   }
 
   figure:nth-child(3) {
-    transition-delay: ${props => props.frame > 0 ? '0ms' : '0ms'};
-    transform: ${props => `translate3d(${props.frame > 0 ? 0 : 60}px, ${props.frame > 0 ? 0 : 40}px, 0)`};
+    transition-delay: ${props => props.frame > 0 ? '300ms' : '0ms'};
+    transform: ${props => `translate3d(${props.frame > 0 ? 0 : 40}px, ${props.frame > 0 ? 0 : 40}px, 0)`};
     opacity: ${props => props.frame > 0 ? 1 : 0};
     background-image: url(${$$Background3});
     z-index: 0;
@@ -127,10 +127,26 @@ const StyledAppStoreButton = styled(AppStoreButton)`
   }
 `
 
-const StyledContent = styled.div`
+const StyledContent = styled.div<{ frame: number }>`
   ${container.fvtc}
   position: relative;
   text-align: center;
+
+  > * {
+    ${animations.transition(['opacity', 'transform'], 400, 'ease-out')}
+
+    &:nth-child(1) {
+      opacity: ${props => props.frame > 0 ? 1 : 0};
+      transition-delay: ${props => props.frame > 0 ? '500ms' : '0ms'};
+      transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : 40}px, 0)`};
+    }
+
+    &:nth-child(2) {
+      transition-delay: ${props => props.frame > 0 ? '400ms' : '0ms'};
+      transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : 40}px, 0)`};
+      opacity: ${props => props.frame > 0 ? 1 : 0};
+    }
+  }
 
   @media ${layout.wide} {
     ${container.fvtl}
