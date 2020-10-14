@@ -98,7 +98,7 @@ const StyledBackground = styled.div`
 `;
 
 const StyledRoot = styled.div`
-  overflow: visible;
+  overflow-y: visible;
   position: relative;
   width: 100%;
 

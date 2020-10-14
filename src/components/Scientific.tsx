@@ -83,22 +83,20 @@ const StyledBackground = styled.div`
   background-image: url(${$$Background});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto 99%;
   height: 100vw;
-  position: realtive;
+  position: relative;
   width: 100%;
 
   @media ${media.wide} {
     ${align.br}
-    background-position: bottom center;
-    bottom: -10%;
+    background-position: right -30% bottom -200%;
     height: 110%;
-    right: -23%;
   }
 `;
 
 const StyledRoot = styled.div`
-  overflow: visible;
+  overflow-y: visible;
   position: relative;
   width: 100%;
 
