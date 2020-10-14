@@ -121,14 +121,14 @@ const StyledBackground = styled.div<{ frame: number }>`
   > figure:nth-child(1) {
     opacity: ${props => props.frame > 0 ? 1 : 0};
     transition-delay: ${props => props.frame > 0 ? '200ms' : '0ms'};
-    transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : -60}px, 0)`};
+    transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : 60}px, 0)`};
     background-image: url(${$$Background1});
     z-index: 1;
   }
 
   > figure:nth-child(2) {
     transition-delay: ${props => props.frame > 0 ? '300ms' : '0ms'};
-    transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : 60}px, 0)`};
+    transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : -60}px, 0)`};
     opacity: ${props => props.frame > 0 ? 1 : 0};
     background-image: url(${$$Background2});
     z-index: 0;
