@@ -1,4 +1,4 @@
-import { container } from 'promptu'
+import { container, media } from 'promptu'
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { RouteComponentProps } from 'react-router'
@@ -55,23 +55,16 @@ export default connect(
 
 const StyledContent = styled.div`
   width: 100%;
-  max-width: 50rem;
   color: ${props => props.theme.colors.white};
 
   h1 {
     ${props => props.theme.fonts.h2}
-
-    + * {
-      margin-top: 5rem;
-    }
+    + * { margin-top: 5rem; }
   }
 
   h2 {
     ${props => props.theme.fonts.h3}
-
-    + * {
-      margin-top: 1.4rem;
-    }
+    + * { margin-top: 1.4rem; }
   }
 
   blockquote {
@@ -79,28 +72,27 @@ const StyledContent = styled.div`
     margin: 1rem 0;
     padding: 0;
     font-style: italic;
-
-    + * {
-      margin-top: 5rem;
-    }
+    + * { margin-top: 5rem; }
   }
 
   p, li {
     ${props => props.theme.fonts.p1}
-
-    + p, + li {
-      margin-top: 1rem;
-    }
-
-    + h1, + h2, + h3 {
-      margin-top: 4rem;
-    }
+    + p, + li { margin-top: 1rem; }
+    + h1, + h2, + h3 { margin-top: 4rem; }
   }
 `
 
 const StyledRoot = styled.div`
   ${container.fvtc}
-  padding: 20rem 5%;
+  padding: 12rem 5%;
   width: 100%;
   min-height: 100%;
+
+  @media ${media.gtmobile} {
+    padding: 14rem 10%;
+  }
+
+  @media ${media.gttablet} {
+    padding: 20rem 10%;
+  }
 `
