@@ -63,7 +63,9 @@ const StyledTitle = styled.h1`
 
 const StyledRoot = styled.div`
   ${container.fvcr}
-  padding: 5% 5%;
   height: 100%;
+  padding: 5% 5%;
   position: relative;
+  width: 100%;
+  max-height: 66vw;
 `
