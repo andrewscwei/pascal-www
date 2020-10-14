@@ -54,7 +54,7 @@ export default connect(
 const StyledContent = styled.div`
   ${container.fvtl}
   ${selectors.eblc} { margin: 0 0 3rem 0; }
-  padding: 0 5% 5rem;
+  padding: 3rem 5% 5rem;
   position: relative;
   width: 100%;
 
@@ -70,8 +70,7 @@ const StyledContent = styled.div`
   @media ${media.wide} {
     ${container.fhtc}
     ${selectors.eblc} { margin: 0 7rem 0 0; }
-    margin-top: 66vw;
-    padding: 0 8% 5rem;
+    padding: 0 8%;
 
     > span {
       ${container.fvtr}
@@ -96,9 +95,8 @@ const StyledBackground = styled.div`
   width: 100%;
 
   @media ${media.wide} {
-    ${align.tc}
-    top: -6%;
-    height: 80%;
+    height: 70vw;
+    width: 80%;
   }
 `;
 

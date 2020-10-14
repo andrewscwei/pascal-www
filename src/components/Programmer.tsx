@@ -73,8 +73,8 @@ const StyledContent = styled.div`
     padding: 0 8%;
 
     > span, article {
-      width: 100%;
-      max-width: 36rem;
+      width: 36rem;
+      max-width: 46%;
     }
   }
 `

@@ -54,7 +54,7 @@ export default connect(
 const StyledContent = styled.div`
   ${container.fvtl}
   ${selectors.eblc} { margin: 0 0 3rem 0; }
-  padding: 5rem 5% 5rem;
+  padding: 3rem 5% 5rem;
   position: relative;
   width: 100%;
 
@@ -73,8 +73,8 @@ const StyledContent = styled.div`
     padding: 0 8%;
 
     > span, article {
-      width: 100%;
-      max-width: 36rem;
+      width: 36rem;
+      max-width: 46%;
     }
   }
 `
@@ -93,7 +93,7 @@ const StyledBackground = styled.div`
     background-position: bottom center;
     bottom: -10%;
     height: 110%;
-    right: -20%;
+    right: -23%;
   }
 `;
 
@@ -107,7 +107,7 @@ const StyledRoot = styled.div`
   @media ${media.wide} {
     ${container.fvcl}
     width: 100%;
-    height: 60vw;
+    height: 66vw;
     max-height: 100rem;
   }
 `
