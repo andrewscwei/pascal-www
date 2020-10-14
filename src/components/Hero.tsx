@@ -1,9 +1,10 @@
-import { container } from 'promptu'
+import { container, media } from 'promptu'
 import React, { forwardRef, PureComponent, Ref } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
+import { layout } from '../styles/theme'
 import AppStoreButton from './AppStoreButton'
 
 interface StateProps {
@@ -47,8 +48,13 @@ export default connect(
 )(forwardRef<HTMLDivElement, Props>((props, ref) => <Hero {...props} forwardedRef={ref}/>))
 
 const StyledAppStoreButton = styled(AppStoreButton)`
-  margin-top: 4rem;
-  height: 6rem;
+  margin-top: 2rem;
+  height: 4rem;
+
+  @media ${media.gttablet} {
+    margin-top: 4rem;
+    height: 6rem;
+  }
 `
 
 const StyledContent = styled.div`
@@ -57,7 +63,6 @@ const StyledContent = styled.div`
 `
 
 const StyledTitle = styled.h1`
-  ${props => props.theme.fonts.h1}
   color: ${props => props.theme.colors.white};
 `
 
@@ -67,5 +72,8 @@ const StyledRoot = styled.div`
   padding: 5% 5%;
   position: relative;
   width: 100%;
-  max-height: 66vw;
+
+  @media ${layout.wide} {
+    max-height: 66vw;
+  }
 `

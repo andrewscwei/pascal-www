@@ -6,7 +6,7 @@ import $$Background1 from '../assets/extensions-phone.png'
 import $$Background2 from '../assets/extensions-watch.png'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
-import { media } from '../styles/theme'
+import { layout } from '../styles/theme'
 
 interface StateProps {
   i18n: I18nState
@@ -87,7 +87,7 @@ const StyledContent = styled.div<{ frame: number }>`
     &:nth-child(4) { transition-delay: ${props => props.frame > 0 ? `${50*3}ms` : '0ms'}; }
   }
 
-  @media ${media.wide} {
+  @media ${layout.wide} {
     ${container.fhtc}
     ${selectors.eblc} { margin: 0 12% 0 0; }
     padding: 5rem 8%;
@@ -157,7 +157,7 @@ const StyledRoot = styled.div<{ frame: number }>`
 
   > * { flex: 0 0 auto; }
 
-  @media ${media.wide} {
+  @media ${layout.wide} {
     ${container.fvbc}
     width: 94%;
   }

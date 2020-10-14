@@ -6,7 +6,7 @@ import $$Background2 from '../assets/scientific-advanced-mode.png'
 import $$Background1 from '../assets/scientific-basic-mode.png'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
-import { media } from '../styles/theme'
+import { layout } from '../styles/theme'
 
 interface StateProps {
   i18n: I18nState
@@ -84,7 +84,7 @@ const StyledContent = styled.div<{ frame: number }>`
     &:nth-child(4) { transition-delay: ${props => props.frame > 0 ? `${50*3}ms` : '0ms'}; }
   }
 
-  @media ${media.wide} {
+  @media ${layout.wide} {
     ${container.fvcl}
     ${selectors.eblc} { margin: 0 0 4% 0; }
     padding: 0 8%;
@@ -127,7 +127,7 @@ const StyledBackground = styled.div<{ frame: number }>`
     z-index: 0;
   }
 
-  @media ${media.wide} {
+  @media ${layout.wide} {
     ${align.br}
     height: 110%;
   }
@@ -140,7 +140,7 @@ const StyledRoot = styled.div`
 
   > * { flex: 0 0 auto; }
 
-  @media ${media.wide} {
+  @media ${layout.wide} {
     ${container.fvcl}
     width: 100%;
     height: 66vw;

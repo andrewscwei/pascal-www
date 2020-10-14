@@ -6,7 +6,7 @@ import $$Background2 from '../assets/graphing-viewport.png'
 import $$Background1 from '../assets/graphing-workspace.png'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
-import { media } from '../styles/theme'
+import { layout } from '../styles/theme'
 
 interface StateProps {
   i18n: I18nState
@@ -82,7 +82,7 @@ const StyledContent = styled.div<{ frame: number }>`
     &:nth-child(4) { transition-delay: ${props => props.frame > 0 ? `${50*3}ms` : '0ms'}; }
   }
 
-  @media ${media.wide} {
+  @media ${layout.wide} {
     ${container.fhtc}
     ${selectors.eblc} { margin: 0 7rem 0 0; }
     padding: 0 8%;
@@ -144,7 +144,7 @@ const StyledBackground = styled.div<{ frame: number }>`
     }
   }
 
-  @media ${media.wide} {
+  @media ${layout.wide} {
     height: 70vw;
     width: 80%;
   }
@@ -154,10 +154,11 @@ const StyledRoot = styled.div`
   overflow-y: visible;
   position: relative;
   width: 100%;
+  z-index: 1;
 
   > * { flex: 0 0 auto; }
 
-  @media ${media.wide} {
+  @media ${layout.wide} {
     ${container.fvbc}
     width: 100%;
     max-height: 100rem;

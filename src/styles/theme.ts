@@ -12,7 +12,7 @@ export const colors = {
   darkGrey: '#666',
 }
 
-export const media = {
+export const layout = {
   wide: promptu.media.gtw(__APP_CONFIG__.wideLayoutMinWidth),
 }
 
@@ -26,7 +26,7 @@ export const fonts = {
     line-height: 140%;
     text-transform: uppercase;
 
-    @media ${media.wide} {
+    @media ${layout.wide} {
       font-size: 3rem;
     }
   `,
@@ -50,22 +50,21 @@ export const fonts = {
   `,
   h1: css`
     font-family: ProximaNova, sans-serif;
-    font-size: 3.4rem;
+    font-size: 2.2rem;
     font-style: normal;
     font-weight: 400;
     letter-spacing: .1rem;
     line-height: 120%;
     text-transform: none;
 
-    strong, b {
-      font-weight: 700;
+    strong, b { font-weight: 700; }
+    em, i { font-style: italic; }
+
+    @media ${promptu.media.gtmobile} {
+      font-size: 2.4;
     }
 
-    em, i {
-      font-style: italic;
-    }
-
-    @media ${media.wide} {
+    @media ${promptu.media.gttablet} {
       font-size: 4rem;
     }
   `,
@@ -77,7 +76,7 @@ export const fonts = {
     letter-spacing: .2rem;
     text-transform: uppercase;
 
-    @media ${media.wide} {
+    @media ${layout.wide} {
       font-size: 3.4rem;
     }
   `,
@@ -101,13 +100,8 @@ export const fonts = {
     line-height: 130%;
     text-transform: uppercase;
 
-    strong, b {
-      font-weight: 700;
-    }
-
-    em, i {
-      font-style: italic;
-    }
+    strong, b { font-weight: 700; }
+    em, i { font-style: italic; }
   `,
   p1: css`
     font-family: ProximaNova, sans-serif;
@@ -118,13 +112,8 @@ export const fonts = {
     line-height: 130%;
     text-transform: none;
 
-    strong, b {
-      font-weight: 700;
-    }
-
-    em, i {
-      font-style: italic;
-    }
+    strong, b { font-weight: 700; }
+    em, i { font-style: italic; }
   `,
   n1: css`
     font-family: ProximaNova, sans-serif;
@@ -135,13 +124,8 @@ export const fonts = {
     line-height: 120%;
     text-transform: none;
 
-    strong, b {
-      font-weight: 700;
-    }
-
-    em, i {
-      font-style: italic;
-    }
+    strong, b { font-weight: 700; }
+    em, i { font-style: italic; }
   `,
   f1: css`
     font-family: ProximaNova, sans-serif;
