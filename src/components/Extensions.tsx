@@ -1,4 +1,4 @@
-import { align, container, selectors } from 'promptu'
+import { align, animations, container, selectors } from 'promptu'
 import React, { forwardRef, PureComponent, Ref } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
@@ -29,7 +29,7 @@ class Extensions extends PureComponent<Props, State> {
     const { ltxt, locale } = i18n
 
     return (
-      <StyledRoot ref={forwardedRef}>
+      <StyledRoot ref={forwardedRef} frame={frame}>
         <StyledBackground frame={frame}>
           <figure/>
           <figure/>
@@ -70,9 +70,21 @@ const StyledContent = styled.div<{ frame: number }>`
 
   > article {
     ${container.fvtl}
+    ${animations.transition(['opacity', 'transform'], 200)}
+    opacity: ${props => props.frame > 0 ? 1 : 0};
+    transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : 20}px, 0)`};
     color: ${props => props.theme.colors.white};
     max-width: 26rem;
     width: 100%;
+
+    > span { opacity: .8; }
+  }
+
+  > * {
+    &:nth-child(1) { transition-delay: ${props => props.frame > 0 ? `${50*0}ms` : '0ms'}; }
+    &:nth-child(2) { transition-delay: ${props => props.frame > 0 ? `${50*1}ms` : '0ms'}; }
+    &:nth-child(3) { transition-delay: ${props => props.frame > 0 ? `${50*2}ms` : '0ms'}; }
+    &:nth-child(4) { transition-delay: ${props => props.frame > 0 ? `${50*3}ms` : '0ms'}; }
   }
 
   @media ${media.wide} {
@@ -98,6 +110,7 @@ const StyledBackground = styled.div<{ frame: number }>`
 
   > figure {
     ${align.tl}
+    ${animations.transition(['opacity', 'transform'], 600, 'ease-in-out')}
     width: 100%;
     height: 100%;
     background-position: bottom center;
@@ -106,24 +119,37 @@ const StyledBackground = styled.div<{ frame: number }>`
   }
 
   > figure:nth-child(1) {
+    opacity: ${props => props.frame > 0 ? 1 : 0};
+    transition-delay: ${props => props.frame > 0 ? '200ms' : '0ms'};
+    transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : -60}px, 0)`};
     background-image: url(${$$Background1});
     z-index: 1;
   }
 
   > figure:nth-child(2) {
+    transition-delay: ${props => props.frame > 0 ? '300ms' : '0ms'};
+    transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : 60}px, 0)`};
+    opacity: ${props => props.frame > 0 ? 1 : 0};
     background-image: url(${$$Background2});
     z-index: 0;
   }
 
   > span {
     ${container.fvtc}
+    ${animations.transition(['opacity', 'transform'], 200)}
+    transition-delay: ${props => props.frame > 0 ? '200ms' : '0ms'};
+    opacity: ${props => props.frame > 0 ? 1 : 0};
+    transform: ${props => `translate3d(0, ${props.frame > 0 ? 0 : 40}px, 0)`};
     color: ${props => props.theme.colors.white};
     z-index: 2;
   }
 `;
 
-const StyledRoot = styled.div`
+const StyledRoot = styled.div<{ frame: number }>`
   ${container.fvtc}
+  ${animations.transition(['opacity', 'transform'], 400, 'ease-in-out')}
+  opacity: ${props => props.frame > 0 ? 1 : 0};
+  transform: ${props => `scale(${props.frame > 0 ? 1 : 1.04})`};
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
