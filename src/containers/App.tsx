@@ -73,7 +73,7 @@ class App extends PureComponent<Props, State> {
   }
 
   private onActivateHeader() {
-    const pathName = _.last(this.props.route.location.pathname.split('/'))
+    const pathName = _.last(_.compact(this.props.route.location.pathname.split('/')))
 
     if (_.isEmpty(pathName)) {
       scrollToTop()

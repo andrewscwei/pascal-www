@@ -50,6 +50,7 @@ class Home extends PureComponent<Props, State> implements UpdateDelegator {
 
   componentDidMount() {
     document.title = this.props.i18n.ltxt('home-page-title')
+    window.scrollTo(0, 0)
 
     this.scrollDelegate = new ScrollDelegate(this)
     this.scrollDelegate.init()
