@@ -1,7 +1,6 @@
 import { container } from 'promptu'
-import React, { PureComponent } from 'react'
+import React, { forwardRef, PureComponent, Ref } from 'react'
 import { connect } from 'react-redux'
-import { Action, bindActionCreators, Dispatch } from 'redux'
 import styled from 'styled-components'
 import { AppState } from '../store'
 import { I18nState } from '../store/i18n'
@@ -13,24 +12,22 @@ interface StateProps {
 
 interface DispatchProps {}
 
-interface OwnProps {}
-
-export interface Props extends StateProps, DispatchProps, OwnProps {
-  isActive: boolean
+interface OwnProps {
+  frame: number
+  forwardedRef?: Ref<HTMLDivElement>
 }
+
+export interface Props extends StateProps, DispatchProps, OwnProps {}
 
 export interface State {}
 
 class Hero extends PureComponent<Props, State> {
-  static defaultProps: Partial<Props> = {
-    isActive: false,
-  }
-
   render() {
-    const { ltxt } = this.props.i18n
+    const { forwardedRef, i18n, frame } = this.props
+    const { ltxt } = i18n
 
     return (
-      <StyledRoot>
+      <StyledRoot ref={forwardedRef}>
         <StyledContent>
           <StyledTitle dangerouslySetInnerHTML={{ __html: ltxt('app-description') }}/>
           <StyledAppStoreButton/>
@@ -44,10 +41,10 @@ export default connect(
   (state: AppState): StateProps => ({
     i18n: state.i18n,
   }),
-  (dispatch: Dispatch<Action>): DispatchProps => bindActionCreators({
-
-  }, dispatch),
-)(Hero)
+  undefined,
+  undefined,
+  { forwardRef: true },
+)(forwardRef<HTMLDivElement, Props>((props, ref) => <Hero {...props} forwardedRef={ref}/>))
 
 const StyledAppStoreButton = styled(AppStoreButton)`
   margin-top: 4rem;
