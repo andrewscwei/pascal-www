@@ -67,6 +67,7 @@ const StyledContent = styled.div<{ frame: number }>`
   padding: 3rem 2rem;
   position: relative;
   width: 100%;
+  z-index: 1;
 
   > article {
     ${container.fvtl}
