@@ -97,8 +97,8 @@ const StyledBackground = styled.div`
 
   @media ${media.wide} {
     ${align.tc}
-    top: -15%;
-    height: 90%;
+    top: -6%;
+    height: 80%;
   }
 `;
 
