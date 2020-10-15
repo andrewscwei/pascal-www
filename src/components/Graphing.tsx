@@ -127,7 +127,7 @@ const StyledBackground = styled.div<{ frame: number }>`
     background-image: url(${$$Background2});
     z-index: 1;
     animation-name: ${props => props.frame > 0 ? 'fade-in' : 'fade-out'};
-    animation-duration: ${props => props.frame > 0 ? '10s' : '400ms'};
+    animation-duration: ${props => props.frame > 0 ? '7s' : '400ms'};
     animation-iteration-count: ${props => props.frame > 0 ? 'infinite' : '1'};
 
     @keyframes fade-in {
