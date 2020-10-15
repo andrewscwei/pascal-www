@@ -2,11 +2,11 @@
 
 > Last updated: October 14, 2020
 
-**Pascal ("the app", "we", or "us") does not share any personal information or data.**
+**Pascal ("the app", "we", or "us") does not collect or share any personal information or data.**
 
 ## Information Pascal Collects
 
-None. Not even analytical data. The best way to protect your data is to not collect any at all.
+None. The best way to protect your data is to not collect any at all.
 
 ## Information Sharing
 
